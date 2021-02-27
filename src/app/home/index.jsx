@@ -1,10 +1,6 @@
 import React from "react";
-import { Container } from "@chakra-ui/react";
+import { Center } from "@chakra-ui/react";
 
-const Home = () => (
-  <Container maxW="container.xl" centerContent>
-    Welcome!
-  </Container>
-);
+const Home = () => <Center>Welcome!</Center>;
 
 export default Home;

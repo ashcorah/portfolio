@@ -3,8 +3,21 @@ import { Box, Image, Badge } from "@chakra-ui/react";
 // eslint-disable-next-line react/prop-types
 const Card = ({ img, alt, current, title, summary, time }) => {
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image boxSize="320px" objectFit="cover" src={img} alt={alt} />
+    <Box
+      cursor="pointer"
+      width="300px"
+      borderWidth="1px"
+      borderRadius="lg"
+      overflow="hidden"
+      opacity="0.8"
+      sx={{
+        ":hover": {
+          transition: "all 0.3s ease",
+          opacity: "1",
+        },
+      }}
+    >
+      <Image boxSize="300px" objectFit="cover" src={img} alt={alt} />
       <Box p="6">
         <Box d="flex" alignItems="baseline">
           {current && (
