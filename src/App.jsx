@@ -4,22 +4,26 @@ import Home from "./app/home/index.jsx";
 import Work from "./app/work/index.jsx";
 import Navbar from "./components/Navbar/index.jsx";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+import Fonts from "./components/Fonts/index.jsx";
 
-import "./App.css";
-
-const colors = {
-  brand: {
-    900: "#1a365d",
-    800: "#153e75",
-    700: "#2a69ac",
+const theme = extendTheme({
+  colors: {
+    brand: {
+      900: "#1a365d",
+      800: "#153e75",
+      700: "#2a69ac",
+    },
   },
-};
-
-const theme = extendTheme({ colors });
+  fonts: {
+    heading: "Roboto Condensed",
+    body: "Roboto Condensed",
+  },
+});
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
+      <Fonts />
       <Router>
         <header>
           <Navbar />
