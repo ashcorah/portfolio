@@ -1,51 +1,80 @@
-import { Box, Image, Badge } from "@chakra-ui/react";
+import { Box, Image, Badge, Button, VStack, HStack } from "@chakra-ui/react";
 
 // eslint-disable-next-line react/prop-types
-const Card = ({ img, alt, current, title, summary, time }) => {
+const Card = ({ company, img, alt, current, title, summary, time }) => {
   return (
     <Box
+      position="relative"
       cursor="pointer"
-      width="300px"
+      width="290px"
+      height="100%"
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
-      opacity="0.8"
       sx={{
-        ":hover": {
-          transition: "all 0.3s ease",
+        ":hover > img": {
+          opacity: "0.8",
+        },
+        ":hover > button": {
           opacity: "1",
         },
       }}
     >
-      <Image boxSize="300px" objectFit="cover" src={img} alt={alt} />
+      <Box
+        as={Button}
+        variant="solid"
+        outline="transparent"
+        top="50%"
+        left="50%"
+        position="absolute"
+        zIndex="1"
+        opacity="0"
+        transform="translate(-50%, -200%)"
+      >
+        Read more
+      </Box>
+      <Image
+        opacity="1"
+        boxSize="290px"
+        objectFit="cover"
+        src={img}
+        alt={alt}
+        transition="all 0.3s ease"
+      />
       <Box p="6">
-        <Box d="flex" alignItems="baseline">
-          {current && (
-            <Badge borderRadius="full" px="2" colorScheme="orange">
-              Current
-            </Badge>
-          )}
+        <VStack alignItems="left" spacing="3px">
+          <HStack>
+            <Box fontWeight="semibold" fontSize="xs" textTransform="uppercase">
+              {company}
+            </Box>
+            {current && (
+              <Badge borderRadius="full" px="2" colorScheme="orange">
+                Current
+              </Badge>
+            )}
+          </HStack>
           <Box
             color="gray.500"
             fontWeight="semibold"
             letterSpacing="wide"
             fontSize="xs"
             textTransform="uppercase"
-            ml={current ? 2 : 0}
           >
             {title}
           </Box>
-        </Box>
-        <Box
-          mt="1"
-          fontWeight="semibold"
-          as="h4"
-          lineHeight="tight"
-          isTruncated
-        >
-          {summary}
-        </Box>
-        <Box>{time}</Box>
+          <Box
+            fontWeight="semibold"
+            letterSpacing="wide"
+            fontSize="xs"
+            textTransform="uppercase"
+            isTruncated
+          >
+            {summary}
+          </Box>
+          <Box mt="1" color="gray.500" fontWeight="semibold" fontSize="xs">
+            {time}
+          </Box>
+        </VStack>
       </Box>
     </Box>
   );

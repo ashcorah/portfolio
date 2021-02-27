@@ -7,6 +7,7 @@ import {
   ModalHeader,
   ModalBody,
   ModalCloseButton,
+  Box,
 } from "@chakra-ui/react";
 
 // eslint-disable-next-line react/prop-types
@@ -17,9 +18,11 @@ const InfoModal = ({ isOpen, onClose, selectedJob }) => {
     <Modal isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>{title}</ModalHeader>
-        <ModalCloseButton />
-        <ModalBody>{description}</ModalBody>
+        <Box p={4}>
+          <ModalHeader>{title}</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>{description}</ModalBody>
+        </Box>
       </ModalContent>
     </Modal>
   );
