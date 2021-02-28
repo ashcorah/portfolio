@@ -4,7 +4,9 @@ import Home from "./app/home/index.jsx";
 import Work from "./app/work/index.jsx";
 import Navbar from "./components/Navbar/index.jsx";
 import { ChakraProvider, extendTheme, VStack } from "@chakra-ui/react";
+import Particles from "react-particles-js";
 import Fonts from "./components/Fonts/index.jsx";
+import ParticlesOptions from "./particles.json";
 
 const theme = extendTheme({
   colors: {
@@ -23,6 +25,10 @@ const theme = extendTheme({
 function App() {
   return (
     <ChakraProvider theme={theme}>
+      <Particles
+        params={ParticlesOptions}
+        style={{ position: "absolute", zIndex: "-1" }}
+      />
       <Fonts />
       <Router>
         <VStack spacing="24px">

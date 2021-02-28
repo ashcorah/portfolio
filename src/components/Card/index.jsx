@@ -6,14 +6,14 @@ const Card = ({ company, img, alt, current, title, summary, time }) => {
     <Box
       position="relative"
       cursor="pointer"
-      width="290px"
+      width="280px"
       height="100%"
       borderWidth="1px"
       borderRadius="lg"
       overflow="hidden"
       sx={{
         ":hover > img": {
-          opacity: "0.8",
+          filter: "invert() hue-rotate(90deg)",
         },
         ":hover > button": {
           opacity: "1",
@@ -35,13 +35,13 @@ const Card = ({ company, img, alt, current, title, summary, time }) => {
       </Box>
       <Image
         opacity="1"
-        boxSize="290px"
+        boxSize="280px"
         objectFit="cover"
         src={img}
         alt={alt}
         transition="all 0.3s ease"
       />
-      <Box p="6">
+      <Box p="6" backgroundColor="white">
         <VStack alignItems="left" spacing="3px">
           <HStack>
             <Box fontWeight="semibold" fontSize="xs" textTransform="uppercase">

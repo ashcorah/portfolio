@@ -15,7 +15,7 @@ const InfoModal = ({ isOpen, onClose, selectedJob }) => {
   const { title, description } = selectedJob || {};
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} isCentered>
+    <Modal motionPreset="scale" isOpen={isOpen} onClose={onClose} isCentered>
       <ModalOverlay />
       <ModalContent>
         <Box p={4}>
