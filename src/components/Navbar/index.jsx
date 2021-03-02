@@ -8,15 +8,20 @@ import {
   useMediaQuery,
   VStack,
   Text,
+  StackDivider,
+  IconButton,
 } from "@chakra-ui/react";
+import usePalette from "../../hooks/usePallette";
 import TextGradient from "../../assets/images/textgradient.jpg";
 import TextGradient2 from "../../assets/images/textgradient2.jpg";
 import Confetti from "react-canvas-confetti";
+import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 
 const Navbar = () => {
-  const [isLargerThan1280] = useMediaQuery("(min-width: 600px)");
+  const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
   const [fireConfetti, setFireConfetti] = useState(false);
   const { pathname } = useLocation();
+  const palette = usePalette();
 
   // eslint-disable-next-line react/prop-types
   function NavLink({ to, children }) {
@@ -68,34 +73,59 @@ const Navbar = () => {
   );
 
   return (
-    <>
-      <Container centerContent>
-        {isLargerThan1280 ? (
-          <Box p={5}>
-            <HStack spacing="70px">
-              <NavLink to="/">Home</NavLink>
-              {title}
-              <NavLink to="/work">Work</NavLink>
+    <Container centerContent>
+      <VStack spacing="25px" divider={<StackDivider borderColor="gray.200" />}>
+        <Box p={2}>
+          <VStack spacing="10px">
+            {isLargerThan600 ? (
+              <HStack spacing="70px">
+                <NavLink to="/">Home</NavLink>
+                {title}
+                <NavLink to="/work">Work</NavLink>
+              </HStack>
+            ) : (
+              <VStack spacing="15px">
+                {title}
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/work">Work</NavLink>
+              </VStack>
+            )}
+            <Confetti
+              style={{
+                position: "absolute",
+                zIndex: -1,
+              }}
+              fire={fireConfetti}
+            />
+            <HStack>
+              <IconButton
+                sx={{
+                  ":hover": {
+                    color: palette.active,
+                  },
+                }}
+                variant="ghost"
+                aria-label="Search database"
+                icon={<AiFillGithub size="30px" />}
+                color={palette.inActive}
+              />
+              <IconButton
+                sx={{
+                  ":hover": {
+                    color: palette.active,
+                  },
+                }}
+                color={palette.inActive}
+                variant="ghost"
+                aria-label="Search database"
+                icon={<AiFillInstagram size="30px" />}
+              />
             </HStack>
-          </Box>
-        ) : (
-          <Box p={5}>
-            <VStack spacing="15px">
-              {title}
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="/work">Work</NavLink>
-            </VStack>
-          </Box>
-        )}
-        <Confetti
-          style={{
-            position: "absolute",
-            zIndex: -1,
-          }}
-          fire={fireConfetti}
-        />
-      </Container>
-    </>
+          </VStack>
+        </Box>
+        <div />
+      </VStack>
+    </Container>
   );
 };
 

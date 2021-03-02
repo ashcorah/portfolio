@@ -1,7 +1,16 @@
 import React, { useState } from "react";
 import Card from "../../components/Card/index.jsx";
-import { Wrap, WrapItem, useDisclosure, Container } from "@chakra-ui/react";
-import InfoModal from "./components/InfoModal/index.jsx";
+import {
+  VStack,
+  Flex,
+  WrapItem,
+  Box,
+  Image,
+  Text,
+  Stack,
+  Wrap,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import Chaser from "../../assets/images/chaser.png";
 import Rockstar from "../../assets/images/rockstar.jpg";
 import RockstarLincoln from "../../assets/images/lincoln.jpg";
@@ -9,7 +18,7 @@ import Skyscanner from "../../assets/images/skyscanner.webp";
 import Towanda from "../../assets/images/honesdale.PNG";
 import University from "../../assets/images/university.jpg";
 import { formatTimeFromNow } from "../../util/time";
-import FlipMove from "react-flip-move";
+import { img1, img2, img3 } from "../../assets/images/work/chaser/index";
 
 const workPlaces = [
   {
@@ -28,6 +37,7 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
+    images: [img1, img2, img3],
   },
   {
     img: Skyscanner,
@@ -45,6 +55,7 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
+    images: [img1, img2, img3],
   },
   {
     img: Rockstar,
@@ -62,6 +73,7 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
+    images: [img1, img2, img3],
   },
   {
     img: RockstarLincoln,
@@ -79,6 +91,7 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
+    images: [img1, img2, img3],
   },
   {
     img: Towanda,
@@ -96,6 +109,7 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
+    images: [img1, img2, img3],
   },
   {
     img: University,
@@ -113,44 +127,59 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
+    images: [img1, img2, img3],
   },
 ];
 
 const Work = () => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const [selectedJob, setSelected] = useState();
-
-  function openJob(id) {
-    setSelected(workPlaces[id]);
-    onOpen();
-  }
+  const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
+  const [selectedJob, setSelected] = useState(0);
 
   return (
-    <Container maxW="1500px">
-      <InfoModal isOpen={isOpen} onClose={onClose} selectedJob={selectedJob} />
-      <Wrap align="center" justify="center" spacing="24px">
-        <FlipMove
-          typeName={null}
-          easing="cubic-bezier(1, 0, 0, 1)"
-          enterAnimation
-        >
+    <Box p={4}>
+      <Flex flex="1">
+        <VStack flex="1">
           {workPlaces.map(
-            ({ company, img, title, summary, current, time }, key) => (
-              <WrapItem key={key} onClick={() => openJob(key)}>
-                <Card
-                  company={company}
-                  img={img}
-                  current={current}
-                  title={title}
-                  summary={summary}
-                  time={time}
-                />
-              </WrapItem>
+            (
+              { company, title, img, description, summary, current, time },
+              key
+            ) => (
+              <Card
+                key={key}
+                description={description}
+                isActive={selectedJob === key}
+                onClick={() => setSelected(key)}
+                company={company}
+                current={current}
+                title={title}
+                summary={summary}
+                time={time}
+                image={img}
+              />
             )
           )}
-        </FlipMove>
-      </Wrap>
-    </Container>
+        </VStack>
+        {isLargerThan600 && (
+          <Flex minW="300px" flexGrow="1">
+            <Stack paddingLeft="20px">
+              <VStack spacing="15px" alignItems="left">
+                <Text fontWeight="bold">{workPlaces[selectedJob].title}</Text>
+                <Text textAlign="justify">
+                  {workPlaces[selectedJob].description}
+                </Text>
+                <Wrap spacing="5px">
+                  {workPlaces[selectedJob].images.map((img) => (
+                    <WrapItem>
+                      <Image maxW="300px" src={img} />
+                    </WrapItem>
+                  ))}
+                </Wrap>
+              </VStack>
+            </Stack>
+          </Flex>
+        )}
+      </Flex>
+    </Box>
   );
 };
 
