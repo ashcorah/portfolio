@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import Card from "../../components/Card/index.jsx";
 import {
   VStack,
-  Flex,
   WrapItem,
-  Box,
-  Image,
   Text,
-  Stack,
   Wrap,
   useMediaQuery,
+  Container,
+  UnorderedList,
+  ListItem,
+  StackDivider,
 } from "@chakra-ui/react";
 import Chaser from "../../assets/images/chaser.png";
 import Rockstar from "../../assets/images/rockstar.jpg";
@@ -18,7 +18,6 @@ import Skyscanner from "../../assets/images/skyscanner.webp";
 import Towanda from "../../assets/images/honesdale.PNG";
 import University from "../../assets/images/university.jpg";
 import { formatTimeFromNow } from "../../util/time";
-import { img1, img2, img3 } from "../../assets/images/work/chaser/index";
 
 const workPlaces = [
   {
@@ -28,16 +27,14 @@ const workPlaces = [
     current: true,
     summary: "Finance company for invoice chasing",
     time: `Started at Chaser ${formatTimeFromNow(new Date(2018, 11, 2))}`,
-    description: `Lorem Ipsum is simply dummy text of the printing and 
-    typesetting industry. Lorem Ipsum has been the industry's standard 
-    dummy text ever since the 1500s, when an unknown printer took a galley
-     of type and scrambled it to make a type specimen book. It has survived 
-     not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged. It was popularised in the 1960s
-       with the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like Aldus
-         PageMaker including versions of Lorem Ipsum.`,
-    images: [img1, img2, img3],
+    description: (
+      <UnorderedList>
+        <ListItem>Payment Portal</ListItem>
+        <ListItem>Receivables</ListItem>
+        <ListItem>Integer molestie lorem at massa</ListItem>
+        <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+      </UnorderedList>
+    ),
   },
   {
     img: Skyscanner,
@@ -55,7 +52,6 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
-    images: [img1, img2, img3],
   },
   {
     img: Rockstar,
@@ -73,7 +69,6 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
-    images: [img1, img2, img3],
   },
   {
     img: RockstarLincoln,
@@ -91,7 +86,6 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
-    images: [img1, img2, img3],
   },
   {
     img: Towanda,
@@ -109,7 +103,6 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
-    images: [img1, img2, img3],
   },
   {
     img: University,
@@ -127,59 +120,61 @@ const workPlaces = [
        with the release of Letraset sheets containing Lorem Ipsum passages,
         and more recently with desktop publishing software like Aldus
          PageMaker including versions of Lorem Ipsum.`,
-    images: [img1, img2, img3],
   },
 ];
 
 const Work = () => {
   const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
-  const [selectedJob, setSelected] = useState(0);
+  const [selectedJob, setSelected] = useState(workPlaces[0]);
 
   return (
-    <Box p={4}>
-      <Flex flex="1">
-        <VStack flex="1">
-          {workPlaces.map(
-            (
-              { company, title, img, description, summary, current, time },
-              key
-            ) => (
-              <Card
-                key={key}
-                description={description}
-                isActive={selectedJob === key}
-                onClick={() => setSelected(key)}
-                company={company}
-                current={current}
-                title={title}
-                summary={summary}
-                time={time}
-                image={img}
-              />
-            )
-          )}
-        </VStack>
+    <Container maxW="container.xl">
+      <VStack
+        justifyContent="center"
+        spacing={4}
+        divider={<StackDivider borderColor="gray.200" />}
+      >
+        <Wrap justify="center">
+          {workPlaces.map((job, key) => {
+            const {
+              company,
+              title,
+              img,
+              description,
+              summary,
+              current,
+              time,
+            } = job;
+            return (
+              <WrapItem w={!isLargerThan600 && "100%"}>
+                <Card
+                  key={key}
+                  description={description}
+                  isActive={selectedJob === job}
+                  onClick={() => setSelected(job)}
+                  company={company}
+                  current={current}
+                  title={title}
+                  summary={summary}
+                  time={time}
+                  image={img}
+                />
+              </WrapItem>
+            );
+          })}
+        </Wrap>
         {isLargerThan600 && (
-          <Flex minW="300px" flexGrow="1">
-            <Stack paddingLeft="20px">
-              <VStack spacing="15px" alignItems="left">
-                <Text fontWeight="bold">{workPlaces[selectedJob].title}</Text>
-                <Text textAlign="justify">
-                  {workPlaces[selectedJob].description}
-                </Text>
-                <Wrap spacing="5px">
-                  {workPlaces[selectedJob].images.map((img) => (
-                    <WrapItem>
-                      <Image maxW="300px" src={img} />
-                    </WrapItem>
-                  ))}
-                </Wrap>
-              </VStack>
-            </Stack>
-          </Flex>
+          <VStack>
+            <Text color="white" fontWeight="bold">
+              {selectedJob.title}
+            </Text>
+            <Text color="white" textAlign="justify">
+              {selectedJob.description}
+            </Text>
+          </VStack>
         )}
-      </Flex>
-    </Box>
+      </VStack>
+    </Container>
   );
 };
 

@@ -25,7 +25,7 @@ const Navbar = () => {
 
   // eslint-disable-next-line react/prop-types
   function NavLink({ to, children }) {
-    const isMatch = pathname === to || (pathname === "/home" && to === "/");
+    const isMatch = pathname === to || (pathname === "/about" && to === "/");
     return (
       <Link to={to}>
         <Text
@@ -74,19 +74,22 @@ const Navbar = () => {
 
   return (
     <Container centerContent>
-      <VStack spacing="25px" divider={<StackDivider borderColor="gray.200" />}>
+      <VStack
+        spacing={4}
+        divider={<StackDivider borderColor="gray.200" maxW="442px" />}
+      >
         <Box p={2}>
           <VStack spacing="10px">
             {isLargerThan600 ? (
               <HStack spacing="70px">
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">About</NavLink>
                 {title}
                 <NavLink to="/work">Work</NavLink>
               </HStack>
             ) : (
               <VStack spacing="15px">
                 {title}
-                <NavLink to="/">Home</NavLink>
+                <NavLink to="/">About</NavLink>
                 <NavLink to="/work">Work</NavLink>
               </VStack>
             )}
