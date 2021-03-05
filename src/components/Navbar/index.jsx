@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { Box, HStack, VStack, Text, IconButton } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
-import TextGradient2 from "../../assets/images/textgradient2.jpg";
 import Confetti from "react-canvas-confetti";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
 

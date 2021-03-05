@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, VStack, HStack, useMediaQuery, Flex } from "@chakra-ui/react";
+import { Box, VStack, HStack, useMediaQuery } from "@chakra-ui/react";
 
 const Card = ({
   company,

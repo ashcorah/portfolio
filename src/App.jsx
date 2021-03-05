@@ -3,12 +3,7 @@ import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Home from "./app/home/index.jsx";
 import Work from "./app/work/index.jsx";
 import Navbar from "./components/Navbar/index.jsx";
-import {
-  ChakraProvider,
-  extendTheme,
-  Flex,
-  useMediaQuery,
-} from "@chakra-ui/react";
+import { ChakraProvider, extendTheme, Flex } from "@chakra-ui/react";
 import Fonts from "./components/Fonts/index.jsx";
 
 const theme = extendTheme({
@@ -40,8 +35,6 @@ const theme = extendTheme({
 });
 
 function App() {
-  const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
-
   return (
     <ChakraProvider theme={theme}>
       <Fonts />
