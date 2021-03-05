@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Box, VStack, HStack, useMediaQuery } from "@chakra-ui/react";
-import usePalette from "../../hooks/usePallette";
+import { Box, VStack, HStack, useMediaQuery, Flex } from "@chakra-ui/react";
 
 const Card = ({
   company,
@@ -13,16 +12,17 @@ const Card = ({
   description,
   ...rest
 }) => {
-  const [isLessThan600] = useMediaQuery("(max-width: 600px)");
-  const colors = usePalette();
+  const [isMobile] = useMediaQuery("(max-width: 970px)");
 
   return (
     <VStack width="100%">
       <Box
-        backgroundColor={isActive ? "transparent" : colors.sex}
+        borderRadius="5px"
         position="relative"
         cursor="pointer"
-        width={isLessThan600 ? "100%" : "280px"}
+        h="100%"
+        width="280px"
+        height="150px"
         borderWidth="1px"
         overflow="hidden"
         sx={{
@@ -38,8 +38,8 @@ const Card = ({
             transition: "all 200ms",
             transform: !isActive && "translateY(100%)",
             filter: !isActive
-              ? "grayscale(100%) brightness(45%)"
-              : "brightness(65%)",
+              ? "brightness(65%)"
+              : "grayscale(100%) brightness(45%)",
           },
           ":hover::before": {
             transform: "none",
@@ -92,7 +92,7 @@ const Card = ({
           </VStack>
         </Box>
       </Box>
-      {isLessThan600 && isActive && (
+      {isMobile && isActive && (
         <Box p={3} textAlign="justify">
           {description}
         </Box>

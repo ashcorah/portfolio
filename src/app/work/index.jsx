@@ -6,10 +6,9 @@ import {
   Text,
   Wrap,
   useMediaQuery,
-  Container,
   UnorderedList,
   ListItem,
-  StackDivider,
+  Box,
 } from "@chakra-ui/react";
 import Chaser from "../../assets/images/chaser.png";
 import Rockstar from "../../assets/images/rockstar.jpg";
@@ -18,6 +17,7 @@ import Skyscanner from "../../assets/images/skyscanner.webp";
 import Towanda from "../../assets/images/honesdale.PNG";
 import University from "../../assets/images/university.jpg";
 import { formatTimeFromNow } from "../../util/time";
+import usePalette from "../../hooks/usePallette.js";
 
 const workPlaces = [
   {
@@ -124,16 +124,13 @@ const workPlaces = [
 ];
 
 const Work = () => {
-  const [isLargerThan600] = useMediaQuery("(min-width: 600px)");
+  const [isMobile] = useMediaQuery("(min-width: 970px)");
   const [selectedJob, setSelected] = useState(workPlaces[0]);
+  const colors = usePalette();
 
   return (
-    <Container maxW="container.xl">
-      <VStack
-        justifyContent="center"
-        spacing={4}
-        divider={<StackDivider borderColor="gray.200" />}
-      >
+    <Box p={10} maxW="1300px" overflowY="auto" overflowX="hidden">
+      <VStack justifyContent="center" spacing={4}>
         <Wrap justify="center">
           {workPlaces.map((job, key) => {
             const {
@@ -146,7 +143,7 @@ const Work = () => {
               time,
             } = job;
             return (
-              <WrapItem w={!isLargerThan600 && "100%"}>
+              <WrapItem w={!isMobile && "100%"}>
                 <Card
                   key={key}
                   description={description}
@@ -163,18 +160,18 @@ const Work = () => {
             );
           })}
         </Wrap>
-        {isLargerThan600 && (
+        {isMobile && (
           <VStack>
-            <Text color="white" fontWeight="bold">
+            <Text color={colors.grey} fontWeight="bold">
               {selectedJob.title}
             </Text>
-            <Text color="white" textAlign="justify">
+            <Text color={colors.grey} textAlign="justify">
               {selectedJob.description}
             </Text>
           </VStack>
         )}
       </VStack>
-    </Container>
+    </Box>
   );
 };
 
