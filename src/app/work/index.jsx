@@ -10,11 +10,11 @@ import {
   ListItem,
   Box,
 } from "@chakra-ui/react";
-import Chaser from "../../assets/images/chaser.png";
-import Rockstar from "../../assets/images/rockstar.jpg";
-import RockstarLincoln from "../../assets/images/lincoln.jpg";
-import Skyscanner from "../../assets/images/skyscanner.webp";
-import Towanda from "../../assets/images/honesdale.PNG";
+import Chaser from "../../assets/images/chaser.jpg";
+import Rockstar from "../../assets/images/rockstar.webp";
+import RockstarLincoln from "../../assets/images/lincoln.webp";
+import Skyscanner from "../../assets/images/skyscanner.jpg";
+import Towanda from "../../assets/images/honesdale.jpg";
 import University from "../../assets/images/university.jpg";
 import { formatTimeFromNow } from "../../util/time";
 import usePalette from "../../hooks/usePallette.js";
@@ -43,15 +43,7 @@ const workPlaces = [
     current: false,
     summary: "Flights comparison website",
     time: `2015 - 2018 - 3 years`,
-    description: `Lorem Ipsum is simply dummy text of the printing and 
-    typesetting industry. Lorem Ipsum has been the industry's standard 
-    dummy text ever since the 1500s, when an unknown printer took a galley
-     of type and scrambled it to make a type specimen book. It has survived 
-     not only five centuries, but also the leap into electronic typesetting,
-      remaining essentially unchanged. It was popularised in the 1960s
-       with the release of Letraset sheets containing Lorem Ipsum passages,
-        and more recently with desktop publishing software like Aldus
-         PageMaker including versions of Lorem Ipsum.`,
+    description: `Notable projects:`,
   },
   {
     img: Rockstar,
@@ -124,13 +116,13 @@ const workPlaces = [
 ];
 
 const Work = () => {
-  const [isMobile] = useMediaQuery("(min-width: 970px)");
+  const [isDesktop] = useMediaQuery("(min-width: 970px)");
   const [selectedJob, setSelected] = useState(workPlaces[0]);
-  const colors = usePalette();
+  const colors = usePalette("greys");
 
   return (
-    <Box p={10} maxW="1300px" overflowY="auto" overflowX="hidden">
-      <VStack justifyContent="center" spacing={4}>
+    <Box p={10} maxW="1300px" h="100%" overflowY="auto" overflowX="hidden">
+      <VStack justifyContent="center" h="100%" spacing={4}>
         <Wrap justify="center">
           {workPlaces.map((job, key) => {
             const {
@@ -143,7 +135,7 @@ const Work = () => {
               time,
             } = job;
             return (
-              <WrapItem w={!isMobile && "100%"}>
+              <WrapItem flex="1">
                 <Card
                   key={key}
                   description={description}
@@ -160,15 +152,27 @@ const Work = () => {
             );
           })}
         </Wrap>
-        {isMobile && (
-          <VStack>
-            <Text color={colors.grey} fontWeight="bold">
-              {selectedJob.title}
-            </Text>
-            <Text color={colors.grey} textAlign="justify">
-              {selectedJob.description}
-            </Text>
-          </VStack>
+        {isDesktop && (
+          <Box
+            p={4}
+            h="100%"
+            w="100%"
+            backgroundColor={colors.neutral}
+            borderRadius="5px"
+            borderWidth="1px"
+          >
+            <VStack alignItems="flex-start">
+              <Text fontSize="15px" color={colors.default} fontWeight="bold">
+                {selectedJob.company}
+              </Text>
+              <Text fontSize="13px" color={colors.default} fontWeight="bold">
+                {selectedJob.title}
+              </Text>
+              <Text fontSize="13px" color={colors.default} textAlign="justify">
+                {selectedJob.description}
+              </Text>
+            </VStack>
+          </Box>
         )}
       </VStack>
     </Box>

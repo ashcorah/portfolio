@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Box, VStack, HStack, useMediaQuery } from "@chakra-ui/react";
+import { Box, VStack, useMediaQuery } from "@chakra-ui/react";
+import usePalette from "../../hooks/usePallette";
 
 const Card = ({
   company,
@@ -12,16 +13,19 @@ const Card = ({
   description,
   ...rest
 }) => {
+  const colors = usePalette("greys");
   const [isMobile] = useMediaQuery("(max-width: 970px)");
 
   return (
     <VStack width="100%">
       <Box
+        backgroundColor={colors.neutral}
+        zIndex="0"
         borderRadius="5px"
         position="relative"
         cursor="pointer"
-        h="100%"
-        width="280px"
+        width="100%"
+        minW="280px"
         height="150px"
         borderWidth="1px"
         overflow="hidden"
@@ -33,13 +37,13 @@ const Card = ({
             left: "0",
             height: "100%",
             width: "100%",
-            zIndex: "1",
+            zIndex: "-1",
             background: `no-repeat center/cover url(${image})`,
-            transition: "all 200ms",
+            transition: "0.3s all ease",
             transform: !isActive && "translateY(100%)",
             filter: !isActive
-              ? "brightness(65%)"
-              : "grayscale(100%) brightness(45%)",
+              ? "grayscale(100%) brightness(50%)"
+              : "brightness(65%)",
           },
           ":hover::before": {
             transform: "none",
@@ -53,47 +57,35 @@ const Card = ({
         }}
         {...rest}
       >
-        <Box as="div" p="6">
+        <Box p="6" h="100%">
           <VStack
-            alignItems="left"
+            disply="flex"
+            direction="column"
+            justifyContent="center"
+            alignItems="center"
             spacing="3px"
-            sx={{ "> *": { zIndex: "3" } }}
+            h="100%"
           >
-            <HStack>
-              <Box
-                fontWeight="semibold"
-                fontSize="xs"
-                textTransform="uppercase"
-              >
-                {company}
-              </Box>
-            </HStack>
-            <Box
-              color="gray.500"
-              fontWeight="semibold"
-              letterSpacing="wide"
-              fontSize="xs"
-              textTransform="uppercase"
-            >
+            <Box fontWeight="semibold" fontSize="xs">
+              {company}
+            </Box>
+            <Box color="gray.500" fontWeight="semibold" fontSize="xs">
               {title}
-            </Box>
-            <Box
-              fontWeight="semibold"
-              letterSpacing="wide"
-              fontSize="xs"
-              textTransform="uppercase"
-              isTruncated
-            >
-              {summary}
-            </Box>
-            <Box mt="1" color="gray.500" fontWeight="semibold" fontSize="xs">
-              {time}
             </Box>
           </VStack>
         </Box>
       </Box>
       {isMobile && isActive && (
-        <Box p={3} textAlign="justify">
+        <Box
+          fontSize="13px"
+          minHeight="150px"
+          backgroundColor={colors.neutral}
+          borderRadius="5px"
+          borderWidth="1px"
+          p={3}
+          w="100%"
+          textAlign="justify"
+        >
           {description}
         </Box>
       )}
