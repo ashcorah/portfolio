@@ -1,20 +1,9 @@
 /* eslint-disable react/prop-types */
-import { Box, VStack, useMediaQuery } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
 
-const Card = ({
-  company,
-  isActive,
-  current,
-  image,
-  title,
-  summary,
-  time,
-  description,
-  ...rest
-}) => {
+const Card = ({ isActive, image, subtitle, title, body, ...rest }) => {
   const colors = usePalette("greys");
-  const [isMobile] = useMediaQuery("(max-width: 970px)");
 
   return (
     <VStack width="100%">
@@ -67,28 +56,14 @@ const Card = ({
             h="100%"
           >
             <Box fontWeight="semibold" fontSize="xs">
-              {company}
+              {title}
             </Box>
             <Box color="gray.500" fontWeight="semibold" fontSize="xs">
-              {title}
+              {subtitle}
             </Box>
           </VStack>
         </Box>
       </Box>
-      {isMobile && isActive && (
-        <Box
-          fontSize="13px"
-          minHeight="150px"
-          backgroundColor={colors.neutral}
-          borderRadius="5px"
-          borderWidth="1px"
-          p={3}
-          w="100%"
-          textAlign="justify"
-        >
-          {description}
-        </Box>
-      )}
     </VStack>
   );
 };

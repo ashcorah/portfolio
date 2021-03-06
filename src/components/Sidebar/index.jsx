@@ -89,10 +89,6 @@ const Sidebar = () => {
               }}
             />
           </Link>
-          <VStack spacing={2}>
-            <NavLink to="/work">Work</NavLink>
-            <NavLink to="/">About</NavLink>
-          </VStack>
         </VStack>
         <HStack>
           <IconButton

@@ -1,10 +1,12 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
-import Home from "./app/home/index.jsx";
 import Work from "./app/work/index.jsx";
 import Sidebar from "./components/Sidebar/index.jsx";
 import { ChakraProvider, extendTheme, SimpleGrid } from "@chakra-ui/react";
 import Fonts from "./components/Fonts/index.jsx";
+import { QueryClient, QueryClientProvider } from "react-query";
+
+const queryClient = new QueryClient();
 
 const theme = extendTheme({
   styles: {
@@ -27,6 +29,7 @@ const theme = extendTheme({
       red: "#C44D58",
       greys: {
         default: "rgba(70,78,84,.88)",
+        mid: "rgb(110, 118, 127)",
         light: "#F2F2F2",
         neutral: "#E3E3E3",
         shade: "#D4D4D4",
@@ -43,22 +46,25 @@ const theme = extendTheme({
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Fonts />
-      <Router>
-        <SimpleGrid h="100%" gridTemplateColumns="250px auto">
-          <aside>
-            <Sidebar />
-          </aside>
-          <main>
-            <Switch>
-              <Route path="/work" component={Work} />
-              <Route path="/" component={Home} />
-            </Switch>
-          </main>
-        </SimpleGrid>
-      </Router>
-    </ChakraProvider>
+    <Fragment>
+      <QueryClientProvider client={queryClient}>
+        <ChakraProvider theme={theme}>
+          <Fonts />
+          <Router>
+            <SimpleGrid h="100%" gridTemplateColumns="250px auto">
+              <aside>
+                <Sidebar />
+              </aside>
+              <main>
+                <Switch>
+                  <Route path="/" component={Work} />
+                </Switch>
+              </main>
+            </SimpleGrid>
+          </Router>
+        </ChakraProvider>
+      </QueryClientProvider>
+    </Fragment>
   );
 }
 
