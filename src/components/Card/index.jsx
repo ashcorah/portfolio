@@ -15,7 +15,7 @@ const Card = ({ isActive, image, subtitle, title, body, ...rest }) => {
         cursor="pointer"
         width="100%"
         minW="280px"
-        height="150px"
+        height="100px"
         borderWidth="1px"
         overflow="hidden"
         sx={{

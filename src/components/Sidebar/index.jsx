@@ -1,96 +1,96 @@
-import { Link } from "react-router-dom";
-import { useRouteMatch } from "react-router-dom";
-import { Box, HStack, VStack, Text, IconButton, Image } from "@chakra-ui/react";
+import { Link, useRouteMatch, useLocation } from "react-router-dom";
+import { Box, HStack, Text, VStack, IconButton, Image } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
-import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
-import Me from "../../assets/images/me.jpg";
+import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+import Ash from '../../assets/images/ash.png';
 
 const Sidebar = () => {
   const isAboutPage = useRouteMatch("/about");
+  const { pathname } = useLocation();
   const colors = usePalette();
 
   const title = (
     <Link to="/">
-      <VStack
-        spacing="0px"
-        textAlign="center"
-        sx={{
-          ":hover *": {
-            color: colors.red,
-          },
-        }}
-      >
-        <Text
-          sx={{
-            cursor: "pointer",
-            fontSize: "1.5em",
-            color: colors.white,
-            whiteSpace: "nowrap",
-            textDecoration: "none",
-          }}
-        >
-          Ash Corah
-        </Text>
-        <Text
-          sx={{
-            cursor: "pointer",
-            fontSize: "1em",
-            color: colors.white,
-            whiteSpace: "nowrap",
-            textDecoration: "none",
-          }}
-        >
-          Software Engineer
-        </Text>
-      </VStack>
+      <Image src={Ash} />
     </Link>
   );
 
+  // eslint-disable-next-line react/prop-types
+  function NavLink({ to, children }) {
+    const isMatch = pathname === to || (pathname === "/about" && to === "/");
+    return (
+      <Link to={to}>
+        <Text
+          sx={{
+            cursor: "pointer",
+            color: isMatch ? colors.white : "black",
+            fontWeight: isMatch ? "bold" : "normal",
+            fontSize: "1em",
+            ":hover": {
+              color: colors.red,
+            },
+          }}
+        >
+          {children}
+        </Text>
+      </Link>
+    );
+  }
+
   return (
-    <Box background={colors.greys.default} p={6} h="100%" w="250px">
+    <Box
+      backgroundColor=" #5b6467"
+      backgroundImage="linear-gradient(315deg, #5b6467 0%, #8b939a 74%)"
+      p={6}
+      h="100%"
+      w="250px"
+    >
       <VStack spacing={4}>
         <VStack spacing={6}>
           {title}
-          <Link to="/about">
-            <Image
-              src={Me}
-              cursor="pointer"
-              width="130px"
-              transition="0.5s all ease"
+        </VStack>
+        <VStack spacing="35px">
+          <HStack>
+            <IconButton
               sx={{
-                filter: !isAboutPage && "grayscale(100%) brightness(65%)",
-                borderRadius: "100%",
                 ":hover": {
-                  filter: "grayscale(0%) brightness(100%)",
+                  color: colors.red,
                 },
               }}
+              variant="ghost"
+              aria-label="github"
+              icon={<AiFillGithub size="30px" />}
+              color={colors.white}
             />
-          </Link>
+            <IconButton
+              sx={{
+                ":hover": {
+                  color: colors.red,
+                },
+              }}
+              color={colors.white}
+              variant="ghost"
+              aria-label="instagram"
+              icon={<AiFillInstagram size="30px" />}
+            />
+            <IconButton
+              sx={{
+                ":hover": {
+                  color: colors.red,
+                },
+              }}
+              color={colors.white}
+              variant="ghost"
+              aria-label="linkedin"
+              icon={<AiFillLinkedin size="30px" />}
+            />
+          </HStack>
+          <VStack>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/work">Work</NavLink>
+            <NavLink to="/gallery">Gallery</NavLink>
+          </VStack>
         </VStack>
-        <HStack>
-          <IconButton
-            sx={{
-              ":hover": {
-                color: colors.red,
-              },
-            }}
-            variant="ghost"
-            aria-label="Search database"
-            icon={<AiFillGithub size="30px" />}
-            color={colors.white}
-          />
-          <IconButton
-            sx={{
-              ":hover": {
-                color: colors.red,
-              },
-            }}
-            color={colors.white}
-            variant="ghost"
-            aria-label="Search database"
-            icon={<AiFillInstagram size="30px" />}
-          />
-        </HStack>
       </VStack>
     </Box>
   );

@@ -1,12 +1,17 @@
 import React, { Fragment } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Work from "./app/work/index.jsx";
+import About from "./app/about/index.jsx";
+import Gallery from "./app/gallery/index.jsx";
 import Sidebar from "./components/Sidebar/index.jsx";
 import { ChakraProvider, extendTheme, SimpleGrid } from "@chakra-ui/react";
 import Fonts from "./components/Fonts/index.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  refetchOnWindowFocus: false,
+  refetchOnMount: false,
+});
 
 const theme = extendTheme({
   styles: {
@@ -22,6 +27,7 @@ const theme = extendTheme({
   },
   colors: {
     palette: {
+      youtube: "#c4302b",
       white: "white",
       blue: "#4ECDC4",
       green: "#C7F464",
@@ -57,7 +63,9 @@ function App() {
               </aside>
               <main>
                 <Switch>
-                  <Route path="/" component={Work} />
+                  <Route exact path="/work" component={Work} />
+                  <Route exact path="/gallery" component={Gallery} />
+                  <Route path="/" component={About} />
                 </Switch>
               </main>
             </SimpleGrid>

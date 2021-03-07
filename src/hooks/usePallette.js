@@ -1,4 +1,4 @@
-import {  useTheme } from "@chakra-ui/react";
+import { useTheme } from "@chakra-ui/react";
 
 function usePalette(variant) {
   const theme = useTheme();
