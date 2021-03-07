@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { useLocation, useRouteMatch } from "react-router-dom";
+import { useRouteMatch } from "react-router-dom";
 import { Box, HStack, VStack, Text, IconButton, Image } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
 import { AiFillGithub, AiFillInstagram } from "react-icons/ai";
@@ -8,29 +7,7 @@ import Me from "../../assets/images/me.jpg";
 
 const Sidebar = () => {
   const isAboutPage = useRouteMatch("/about");
-  const { pathname } = useLocation();
   const colors = usePalette();
-
-  // eslint-disable-next-line react/prop-types
-  function NavLink({ to, children }) {
-    const isMatch = pathname === to || (pathname === "/about" && to === "/");
-    return (
-      <Link to={to}>
-        <Text
-          sx={{
-            cursor: "pointer",
-            color: isMatch ? colors.white : "black",
-            fontSize: "1em",
-            ":hover": {
-              color: colors.red,
-            },
-          }}
-        >
-          {children}
-        </Text>
-      </Link>
-    );
-  }
 
   const title = (
     <Link to="/">

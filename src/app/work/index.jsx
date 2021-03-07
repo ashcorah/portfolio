@@ -20,7 +20,7 @@ import Hobbies1 from "../../assets/images/hobbies1.jpg";
 import Hobbies2 from "../../assets/images/hobbies2.jpg";
 import { formatTimeFromNow } from "../../util/time";
 import usePalette from "../../hooks/usePallette.js";
-import Feed from "react-instagram-authless-feed";
+import InstaFeed from './components/InstaFeed/index.jsx';
 
 function getWorkPlaces(colors) {
   return [
@@ -80,21 +80,21 @@ function getWorkPlaces(colors) {
   ];
 }
 
-function getAboutMe(colors) {
+function getAboutMe() {
   return [
     {
       id: 7,
       img: Hobbies1,
       title: "About me",
       subtitle: "💀",
-      body: <Feed userName="trashcorah" limit="10" />,
+      body: <InstaFeed fields="id, caption, media_url" />,
     },
     {
       id: 8,
       img: Hobbies2,
       title: "Hobbies",
       subtitle: "🚴",
-      body: `Blah`,
+      body: "",
     },
   ];
 }
@@ -102,7 +102,7 @@ function getAboutMe(colors) {
 const Work = () => {
   const colors = usePalette("greys");
   const workPlaces = getWorkPlaces(colors);
-  const amoutMe = getAboutMe(colors);
+  const amoutMe = getAboutMe();
   const [isDesktop] = useMediaQuery("(min-width: 970px)");
   const [selected, setSelected] = useState(amoutMe[0]);
 
@@ -114,10 +114,9 @@ const Work = () => {
             const { id, title, subtitle, img, body } = job;
             const isActive = selected.id === id;
             return (
-              <WrapItem flex="1">
+              <WrapItem flex="1" key={key}>
                 <VStack w="100%">
                   <Card
-                    key={key}
                     isActive={isActive}
                     onClick={() => setSelected(job)}
                     title={title}
