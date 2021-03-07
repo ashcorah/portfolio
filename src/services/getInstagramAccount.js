@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const token = "";
+const token = "IGQVJXb0RwblNHODIycDNqTmRsZAHh0NlVjbENBbEFYa0FrVWZA2Mm50ZA2xnZA3VvOWNNZAFZAnaGtZASTlQNWxydlEzc3dmMjR4ZAXRGMGFmeGZAnbVlrV2psSG9SZAVZAYb05qU0N0TE55S002c0hTRDNIMGJMdAZDZD";
 
 async function getInstagramAccount(fields) {
   const { data } = await axios.get(

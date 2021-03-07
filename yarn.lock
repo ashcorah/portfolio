@@ -9882,6 +9882,11 @@ react-focus-lock@2.5.0:
     use-callback-ref "^1.2.1"
     use-sidecar "^1.0.1"
 
+react-hover-video-player@^7.1.0:
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/react-hover-video-player/-/react-hover-video-player-7.1.0.tgz#0fa2a4d08d2f16fae50d16faec8b39f71b1522ec"
+  integrity sha512-a3KAIdx1VbeQc2w10sdR8OA6NmyiXsY4eEyWsy7eTYwsSa7psROW1s2q8dkPQ6v+35jPG1Xlqf3x2FeoWMefMw==
+
 react-icons@^4.2.0:
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/react-icons/-/react-icons-4.2.0.tgz#6dda80c8a8f338ff96a1851424d63083282630d0"

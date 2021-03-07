@@ -20,7 +20,7 @@ import Hobbies1 from "../../assets/images/hobbies1.jpg";
 import Hobbies2 from "../../assets/images/hobbies2.jpg";
 import { formatTimeFromNow } from "../../util/time";
 import usePalette from "../../hooks/usePallette.js";
-import InstaFeed from './components/InstaFeed/index.jsx';
+import InstaFeed from "./components/InstaFeed/index.jsx";
 
 function getWorkPlaces(colors) {
   return [
@@ -87,7 +87,9 @@ function getAboutMe() {
       img: Hobbies1,
       title: "About me",
       subtitle: "💀",
-      body: <InstaFeed fields="id, caption, media_url" />,
+      body: (
+        <InstaFeed fields="id,thumbnail,  caption, media_url, media_type" />
+      ),
     },
     {
       id: 8,
