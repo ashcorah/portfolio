@@ -4,25 +4,23 @@ import getInstagramAccount from "../../../../services/getInstagramAccount";
 import { string } from "prop-types";
 import usePalette from "../../../../hooks/usePallette";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
-import { VideoProgress } from 'react-video-progress'
+import { VideoProgress } from "react-video-progress";
 
 const InstaFeed = ({ fields }) => {
   const colors = usePalette();
   const { isLoading, error, data } = useQuery(["instagram", { fields }], () =>
-    getInstagramAccount(fields), {
-    refetchOnMount: false,
-  });
+    getInstagramAccount(fields)
+  );
 
-  if (isLoading) return (
-    <Center h="100%">
-      <ClimbingBoxLoader color={colors.greys.default} />
-    </Center>
-  );
-  if (error) return (
-    <Center h="100%">
-      Uh oh...something failed 😔
-    </Center>
-  );
+  if (isLoading)
+    return (
+      <Center h="100%">
+        <ClimbingBoxLoader color={colors.greys.default} />
+      </Center>
+    );
+
+  if (error)
+    return <Center h="100%">Uh oh...something failed to load. 😔</Center>;
 
   return (
     <Wrap spacing={2} w="100%" justify="center" textAlign="center">
@@ -34,9 +32,9 @@ const InstaFeed = ({ fields }) => {
                 h="100%"
                 sx={{
                   ":hover": {
-                    "p": {
-                      display: "none"
-                    }
+                    p: {
+                      display: "none",
+                    },
                   },
                 }}
               >
@@ -58,8 +56,8 @@ const InstaFeed = ({ fields }) => {
                       type="BottomLine"
                       pathColor={colors.youtube}
                       pathWidth="4px"
-                      onMouseOver={event => event.target.play()}
-                      onMouseOut={event => event.target.pause()}
+                      onMouseOver={(event) => event.target.play()}
+                      onMouseOut={(event) => event.target.pause()}
                       src={media_url}
                       wrapperStyle={{
                         minWidth: "200px",
@@ -88,7 +86,6 @@ const InstaFeed = ({ fields }) => {
                 <Text
                   position="absolute"
                   maxW="120px"
-                  fontWeight="bold"
                   fontSize="15px"
                   color={colors.white}
                 >

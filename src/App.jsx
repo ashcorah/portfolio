@@ -9,8 +9,12 @@ import Fonts from "./components/Fonts/index.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 const queryClient = new QueryClient({
-  refetchOnWindowFocus: false,
-  refetchOnMount: false,
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
+    },
+  },
 });
 
 const theme = extendTheme({
@@ -33,6 +37,7 @@ const theme = extendTheme({
       green: "#C7F464",
       orange: "#FF6B6B",
       red: "#C44D58",
+      black: "#444444",
       greys: {
         default: "rgba(70,78,84,.88)",
         mid: "rgb(110, 118, 127)",
@@ -45,8 +50,8 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: "Open Sans",
-    body: "Open Sans",
+    heading: "Merriweather",
+    body: "Merriweather",
   },
 });
 
@@ -57,7 +62,10 @@ function App() {
         <ChakraProvider theme={theme}>
           <Fonts />
           <Router>
-            <SimpleGrid h="100%" gridTemplateColumns="250px auto">
+            <SimpleGrid
+              h="100%"
+              gridTemplateColumns="repeat(auto-fit, minmax(250px, auto))"
+            >
               <aside>
                 <Sidebar />
               </aside>

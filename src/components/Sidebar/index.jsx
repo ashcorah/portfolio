@@ -1,18 +1,40 @@
-import { Link, useRouteMatch, useLocation } from "react-router-dom";
-import { Box, HStack, Text, VStack, IconButton, Image } from "@chakra-ui/react";
+import { Link, useLocation, useRouteMatch } from "react-router-dom";
+import {
+  Box,
+  HStack,
+  Heading,
+  Text,
+  VStack,
+  Stack,
+  IconButton,
+  useMediaQuery,
+} from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
-import Ash from '../../assets/images/ash.png';
 
 const Sidebar = () => {
-  const isAboutPage = useRouteMatch("/about");
+  const isHome = useRouteMatch("/about");
   const { pathname } = useLocation();
   const colors = usePalette();
+  const [isMobile] = useMediaQuery("(max-width: 516px");
 
   const title = (
-    <Link to="/">
-      <Image src={Ash} />
-    </Link>
+    <Stack textAlign="center">
+      <Link to="/">
+        <Heading
+          transition="0.5s all ease"
+          color={isHome ? colors.black : colors.greys.default}
+        >
+          Ash Corah
+        </Heading>
+        <Text
+          transition="0.5s all ease"
+          color={isHome ? colors.black : colors.greys.default}
+        >
+          Software Engineer
+        </Text>
+      </Link>
+    </Stack>
   );
 
   // eslint-disable-next-line react/prop-types
@@ -23,11 +45,11 @@ const Sidebar = () => {
         <Text
           sx={{
             cursor: "pointer",
-            color: isMatch ? colors.white : "black",
+            color: isMatch ? colors.black : colors.greys.default,
             fontWeight: isMatch ? "bold" : "normal",
             fontSize: "1em",
             ":hover": {
-              color: colors.red,
+              color: "black",
             },
           }}
         >
@@ -39,36 +61,35 @@ const Sidebar = () => {
 
   return (
     <Box
-      backgroundColor=" #5b6467"
-      backgroundImage="linear-gradient(315deg, #5b6467 0%, #8b939a 74%)"
-      p={6}
+      justifyContent={isMobile ? "center" : "flex-start"}
+      display="flex"
+      backgroundColor="transparent"
+      p={10}
       h="100%"
-      w="250px"
+      w="100%"
     >
       <VStack spacing={4}>
-        <VStack spacing={6}>
-          {title}
-        </VStack>
+        <VStack spacing={6}>{title}</VStack>
         <VStack spacing="35px">
           <HStack>
             <IconButton
               sx={{
                 ":hover": {
-                  color: colors.red,
+                  color: colors.black,
                 },
               }}
               variant="ghost"
               aria-label="github"
               icon={<AiFillGithub size="30px" />}
-              color={colors.white}
+              color={colors.greys.default}
             />
             <IconButton
               sx={{
                 ":hover": {
-                  color: colors.red,
+                  color: colors.black,
                 },
               }}
-              color={colors.white}
+              color={colors.greys.default}
               variant="ghost"
               aria-label="instagram"
               icon={<AiFillInstagram size="30px" />}
@@ -76,10 +97,10 @@ const Sidebar = () => {
             <IconButton
               sx={{
                 ":hover": {
-                  color: colors.red,
+                  color: colors.black,
                 },
               }}
-              color={colors.white}
+              color={colors.greys.default}
               variant="ghost"
               aria-label="linkedin"
               icon={<AiFillLinkedin size="30px" />}
