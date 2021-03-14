@@ -1,13 +1,5 @@
 import { useQuery } from "react-query";
-import {
-  Wrap,
-  Image,
-  Box,
-  WrapItem,
-  Text,
-  Stack,
-  Center,
-} from "@chakra-ui/react";
+import { Wrap, Image, WrapItem, Text, Stack, Center } from "@chakra-ui/react";
 import getInstagramAccount from "../../../../services/getInstagramAccount";
 import { string } from "prop-types";
 import usePalette from "../../../../hooks/usePallette";
@@ -31,7 +23,7 @@ const InstaFeed = ({ fields }) => {
     return <Center h="100%">Uh oh...something failed to load. 😔</Center>;
 
   return (
-    <Wrap pr={8} w="100%" justify="center" textAlign="center">
+    <Wrap w="100%" justify="center" textAlign="center">
       {data.map(({ media_url, caption, media_type, thumbnail }) => {
         return (
           <WrapItem flex="1">

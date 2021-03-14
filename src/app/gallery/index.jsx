@@ -2,13 +2,14 @@ import { Box, Text, VStack, StackDivider } from "@chakra-ui/react";
 import InstaFeed from "./components/InstaFeed/index.jsx";
 import AccentBox from "../../components/AccentBox/index";
 import usePalette from "../../hooks/usePallette.js";
+import Bike from "../../assets/images/bike.png";
 
 const Gallery = () => {
   const colors = usePalette();
   return (
     <Box w="100%" h="100%">
-      <VStack spacing={4}>
-        <AccentBox accent={colors.lavendar} minH="350px">
+      <VStack spacing={2}>
+        <AccentBox accent={colors.lavendar} minH="350px" image={Bike}>
           <VStack
             w="100%"
             alignItems="flex-start"

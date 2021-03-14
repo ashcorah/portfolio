@@ -1,4 +1,4 @@
-import { Link, useLocation, useRouteMatch } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   Box,
   HStack,
@@ -7,7 +7,6 @@ import {
   VStack,
   Stack,
   IconButton,
-  useMediaQuery,
 } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
@@ -15,7 +14,6 @@ import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 const Sidebar = () => {
   const { pathname } = useLocation();
   const colors = usePalette();
-  const [isMobile] = useMediaQuery("(max-width: 516px");
 
   function color(path) {
     switch (path) {
@@ -65,7 +63,7 @@ const Sidebar = () => {
 
   return (
     <Box
-      justifyContent={isMobile ? "center" : "flex-start"}
+      justifyContent="center"
       display="flex"
       backgroundColor="transparent"
       p={10}

@@ -4,7 +4,12 @@ import Work from "./app/work/index.jsx";
 import About from "./app/about/index.jsx";
 import Gallery from "./app/gallery/index.jsx";
 import Sidebar from "./components/Sidebar/index.jsx";
-import { ChakraProvider, extendTheme, SimpleGrid } from "@chakra-ui/react";
+import {
+  ChakraProvider,
+  useMediaQuery,
+  extendTheme,
+  SimpleGrid,
+} from "@chakra-ui/react";
 import Fonts from "./components/Fonts/index.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
 
@@ -52,6 +57,8 @@ const theme = extendTheme({
 });
 
 function App() {
+  const [isMobile] = useMediaQuery("(max-width: 516px");
+
   return (
     <Fragment>
       <QueryClientProvider client={queryClient}>
@@ -60,7 +67,11 @@ function App() {
           <Router>
             <SimpleGrid
               h="100%"
-              gridTemplateColumns="repeat(auto-fit, minmax(250px, max-content))"
+              gridTemplateColumns={
+                isMobile
+                  ? "repeat(auto-fit, minmax(250px, auto))"
+                  : "250px repeat(auto-fit, minmax(250px, auto))"
+              }
             >
               <aside>
                 <Sidebar />

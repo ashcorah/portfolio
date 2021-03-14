@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import Card from "../../components/Card/index.jsx";
 import {
   VStack,
-  WrapItem,
   Text,
-  Wrap,
   useMediaQuery,
-  UnorderedList,
-  ListItem,
   Box,
   StackDivider,
+  HStack,
 } from "@chakra-ui/react";
-import Chaser from "../../assets/images/chaser.jpg";
+import Chaser from "./components/Chaser/index.jsx";
+import Bank from "../../assets/images/chaser.jpg";
 import Rockstar from "../../assets/images/rockstar.webp";
 import RockstarLincoln from "../../assets/images/lincoln.webp";
 import Skyscanner from "../../assets/images/skyscanner.jpg";
@@ -24,20 +22,10 @@ function getWorkPlaces(colors) {
   return [
     {
       id: 1,
-      img: Chaser,
+      img: Bank,
       title: "Chaser",
       subtitle: "Front-End Engineer \u25CF Remote",
-      body: (
-        <VStack justifyContent="flex-start" w="100%">
-          <Text fontSize="13px" fontColor={colors.gray} fontWeight="bold">
-            Some notable projects
-          </Text>
-          <UnorderedList>
-            <ListItem>Payment Portal</ListItem>
-            <ListItem>Receivables</ListItem>
-          </UnorderedList>
-        </VStack>
-      ),
+      body: <Chaser />,
     },
     {
       id: 2,
@@ -84,71 +72,74 @@ const Work = () => {
   const [selected, setSelected] = useState(workPlaces[0]);
 
   return (
-    <Box
-      paddingTop={10}
-      maxW="1300px"
-      h="100%"
-      overflowY="auto"
-      overflowX="hidden"
-    >
-      <VStack h="100%" spacing={8}>
-        <Wrap w="100%" pr={8}>
+    <Box h="100%" w="100%">
+      <HStack h="100%" spacing={2}>
+        <VStack
+          pt={4}
+          pb={6}
+          pr={1}
+          h="100%"
+          display="flex"
+          flexGrow="1"
+          flexDirection="column"
+        >
           {workPlaces.map((job, key) => {
             const { id, title, img, body, subtitle } = job;
             const isActive = selected.id === id;
             return (
-              <WrapItem flex="1">
-                <VStack w="100%">
-                  <Card
-                    key={key}
-                    body={body}
-                    isActive={isActive}
-                    onClick={() => setSelected(job)}
-                    subtitle={subtitle}
-                    title={title}
-                    image={img}
-                  />
-                  {!isDesktop && isActive && (
-                    <Box
-                      fontSize="13px"
-                      color={colors.white}
-                      minHeight="150px"
-                      backgroundColor={colors.gold}
-                      borderRadius="5px"
-                      borderWidth="1px"
-                      p={3}
-                      w="100%"
-                      textAlign="justify"
-                    >
-                      {body}
-                    </Box>
-                  )}
-                </VStack>
-              </WrapItem>
+              <>
+                <Card
+                  key={key}
+                  isActive={isActive}
+                  onClick={() => setSelected(job)}
+                  subtitle={subtitle}
+                  title={title}
+                  image={img}
+                />
+                {!isDesktop && isActive && (
+                  <Box
+                    fontSize="13px"
+                    color={colors.white}
+                    minHeight="150px"
+                    backgroundColor={colors.blue}
+                    borderRadius="5px"
+                    borderWidth="1px"
+                    p={3}
+                    w="100%"
+                    textAlign="justify"
+                  >
+                    {body}
+                  </Box>
+                )}
+              </>
             );
           })}
-        </Wrap>
+        </VStack>
         {isDesktop && (
           <VStack spacing="0px" h="100%" w="100%">
             <AccentBox accent={colors.blue}>
-              <VStack
-                w="100%"
-                alignItems="flex-start"
-                spacing={6}
-                divider={
-                  <StackDivider borderWidth="1px" w="50%" borderColor="white" />
-                }
-              >
-                <Text fontSize="3em">{selected.title}</Text>
-                <Text fontSize="1.5em">{selected.subtitle}</Text>
+              <VStack alignItems="flex-start" w="100%" spacing={20}>
+                <VStack
+                  w="100%"
+                  alignItems="flex-start"
+                  spacing={6}
+                  divider={
+                    <StackDivider
+                      borderWidth="1px"
+                      w="90%"
+                      borderColor="white"
+                    />
+                  }
+                >
+                  <Text fontSize="3em">{selected.title}</Text>
+                  <Text fontSize="1.5em">{selected.subtitle}</Text>
+                </VStack>
+                <Text>{selected.body}</Text>
               </VStack>
-            </AccentBox>
-            <AccentBox accent={colors.blue}>
-              <Text>{selected.body}</Text>
             </AccentBox>
           </VStack>
         )}
-      </VStack>
+      </HStack>
     </Box>
   );
 };
