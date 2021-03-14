@@ -13,24 +13,28 @@ import usePalette from "../../hooks/usePallette";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
 const Sidebar = () => {
-  const isHome = useRouteMatch("/about");
   const { pathname } = useLocation();
   const colors = usePalette();
   const [isMobile] = useMediaQuery("(max-width: 516px");
 
+  function color(path) {
+    switch (path) {
+      case "/about":
+        return colors.gold;
+      case "/gallery":
+        return colors.lavendar;
+      default:
+        return colors.blue;
+    }
+  }
+
   const title = (
     <Stack textAlign="center">
       <Link to="/">
-        <Heading
-          transition="0.5s all ease"
-          color={isHome ? colors.black : colors.greys.default}
-        >
+        <Heading transition="0.5s all ease" color={color(pathname)}>
           Ash Corah
         </Heading>
-        <Text
-          transition="0.5s all ease"
-          color={isHome ? colors.black : colors.greys.default}
-        >
+        <Text transition="0.5s all ease" color={colors.gray}>
           Software Engineer
         </Text>
       </Link>
@@ -45,7 +49,7 @@ const Sidebar = () => {
         <Text
           sx={{
             cursor: "pointer",
-            color: isMatch ? colors.black : colors.greys.default,
+            color: isMatch ? colors.black : colors.gray,
             fontWeight: isMatch ? "bold" : "normal",
             fontSize: "1em",
             ":hover": {
@@ -81,15 +85,15 @@ const Sidebar = () => {
               variant="ghost"
               aria-label="github"
               icon={<AiFillGithub size="30px" />}
-              color={colors.greys.default}
+              color={colors.gray}
             />
             <IconButton
               sx={{
                 ":hover": {
-                  color: colors.black,
+                  color: colors.base,
                 },
               }}
-              color={colors.greys.default}
+              color={colors.gray}
               variant="ghost"
               aria-label="instagram"
               icon={<AiFillInstagram size="30px" />}
@@ -97,10 +101,10 @@ const Sidebar = () => {
             <IconButton
               sx={{
                 ":hover": {
-                  color: colors.black,
+                  color: colors.base,
                 },
               }}
-              color={colors.greys.default}
+              color={colors.gray}
               variant="ghost"
               aria-label="linkedin"
               icon={<AiFillLinkedin size="30px" />}

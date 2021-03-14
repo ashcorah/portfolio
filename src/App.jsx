@@ -21,7 +21,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "#eaeaea",
+        bg: "#F2F7F7",
         height: "100%",
       },
       html: {
@@ -31,27 +31,23 @@ const theme = extendTheme({
   },
   colors: {
     palette: {
-      youtube: "#c4302b",
+      base: "#0B2436",
+      red: "#C9A3A4",
       white: "white",
-      blue: "#4ECDC4",
-      green: "#C7F464",
+      green: "#ACB5AC",
       orange: "#FF6B6B",
-      red: "#C44D58",
-      black: "#444444",
-      greys: {
-        default: "rgba(70,78,84,.88)",
-        mid: "rgb(110, 118, 127)",
-        light: "#F2F2F2",
-        neutral: "#E3E3E3",
-        shade: "#D4D4D4",
-        dark: "#C5C5C5",
-        jet: "#B6B6B6",
-      },
+      black: "#2E2E2E",
+      gold: "#D5B792",
+      blue: "#A7CEEF",
+      gray: "#858585",
+      lightGray: "#BBBFBF",
+      lighterGray: "#F2F7F7",
+      lavendar: "#B8BBD3",
     },
   },
   fonts: {
-    heading: "Merriweather",
-    body: "Merriweather",
+    heading: "Source Sans Pro",
+    body: "Source Sans Pro",
   },
 });
 
@@ -64,7 +60,7 @@ function App() {
           <Router>
             <SimpleGrid
               h="100%"
-              gridTemplateColumns="repeat(auto-fit, minmax(250px, auto))"
+              gridTemplateColumns="repeat(auto-fit, minmax(250px, max-content))"
             >
               <aside>
                 <Sidebar />

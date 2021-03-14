@@ -1,5 +1,13 @@
 import { useQuery } from "react-query";
-import { Wrap, Image, WrapItem, Text, Stack, Center } from "@chakra-ui/react";
+import {
+  Wrap,
+  Image,
+  Box,
+  WrapItem,
+  Text,
+  Stack,
+  Center,
+} from "@chakra-ui/react";
 import getInstagramAccount from "../../../../services/getInstagramAccount";
 import { string } from "prop-types";
 import usePalette from "../../../../hooks/usePallette";
@@ -14,8 +22,8 @@ const InstaFeed = ({ fields }) => {
 
   if (isLoading)
     return (
-      <Center h="100%">
-        <ClimbingBoxLoader color={colors.greys.default} />
+      <Center>
+        <ClimbingBoxLoader color={colors.lavendar} />
       </Center>
     );
 
@@ -23,7 +31,7 @@ const InstaFeed = ({ fields }) => {
     return <Center h="100%">Uh oh...something failed to load. 😔</Center>;
 
   return (
-    <Wrap spacing={2} w="100%" justify="center" textAlign="center">
+    <Wrap pr={8} w="100%" justify="center" textAlign="center">
       {data.map(({ media_url, caption, media_type, thumbnail }) => {
         return (
           <WrapItem flex="1">
@@ -44,7 +52,6 @@ const InstaFeed = ({ fields }) => {
                   filter="grayscale(100%) brightness(50%)"
                   height="100%"
                   sx={{
-                    borderRadius: "5px",
                     ":hover": {
                       filter: "grayscale(0%) brightness(100%)",
                     },
@@ -54,7 +61,7 @@ const InstaFeed = ({ fields }) => {
                     <VideoProgress
                       progressStart="BottomLeft"
                       type="BottomLine"
-                      pathColor={colors.youtube}
+                      pathColor={colors.red}
                       pathWidth="4px"
                       onMouseOver={(event) => event.target.play()}
                       onMouseOut={(event) => event.target.pause()}
