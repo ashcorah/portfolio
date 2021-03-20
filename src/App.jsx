@@ -78,7 +78,7 @@ function App() {
               </aside>
               <main>
                 <Switch>
-                  <Route exact path="/work" component={Work} />
+                  <Route path="/work" component={Work} />
                   <Route exact path="/gallery" component={Gallery} />
                   <Route path="/" component={About} />
                 </Switch>

@@ -12,7 +12,7 @@ import usePalette from "../../hooks/usePallette";
 import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
 
 const Sidebar = () => {
-  const { pathname } = useLocation();
+  const location = useLocation();
   const colors = usePalette();
 
   function color(path) {
@@ -29,7 +29,7 @@ const Sidebar = () => {
   const title = (
     <Stack textAlign="center">
       <Link to="/">
-        <Heading transition="0.5s all ease" color={color(pathname)}>
+        <Heading transition="0.5s all ease" color={color(location.pathname)}>
           Ash Corah
         </Heading>
         <Text transition="0.5s all ease" color={colors.gray}>
@@ -41,7 +41,10 @@ const Sidebar = () => {
 
   // eslint-disable-next-line react/prop-types
   function NavLink({ to, children }) {
-    const isMatch = pathname === to || (pathname === "/about" && to === "/");
+    console.log(location);
+    const isMatch =
+      location.pathname.includes(to) ||
+      (location.pathname === "/about" && to === "/");
     return (
       <Link to={to}>
         <Text

@@ -1,19 +1,17 @@
 import { Box, VStack } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
 
-const Card = ({ isActive, image, subtitle, title, ...rest }) => {
+const Card = ({ isSelected, image, subtitle, title, ...rest }) => {
   const colors = usePalette();
 
   return (
     <Box
-      h="100%"
       zIndex="0"
       borderWidth="1px"
       position="relative"
       cursor="pointer"
-      width="100%"
-      minW="280px"
       overflow="hidden"
+      transition="0.5s all ease"
       sx={{
         "::before": {
           content: '""',
@@ -25,18 +23,18 @@ const Card = ({ isActive, image, subtitle, title, ...rest }) => {
           zIndex: "-1",
           background: `no-repeat center/cover url(${image})`,
           transition: "0.3s all ease",
-          filter: !isActive
-            ? "grayscale(100%) brightness(50%)"
-            : "brightness(65%)",
+          filter: isSelected
+            ? "grayscale(0%) brightness(100%)"
+            : "grayscale(100%) brightness(50%)",
         },
         ":hover::before": {
-          opacity: "100%",
-          transform: "scale(1.2)",
+          filter: "grayscale(0%) brightness(100%)",
+          transform: "scale(1.1)",
         },
       }}
       {...rest}
     >
-      <Box p="6" h="100%">
+      <Box p="6" h="100%" w="100%">
         <VStack
           disply="flex"
           direction="column"

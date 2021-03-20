@@ -1,42 +1,31 @@
-import { VStack, Text, UnorderedList, ListItem } from "@chakra-ui/react";
+import {
+  VStack,
+  Text,
+  UnorderedList,
+  Box,
+  ListItem,
+  Center,
+} from "@chakra-ui/react";
 import usePalette from "../../../../hooks/usePallette";
 
 const Chaser = () => {
   const colors = usePalette();
   return (
-    <VStack
-      spacing={10}
-      justifyContent="flex-start"
-      alignItems="flex-start"
-      textAlign="justify"
-      w="100%"
-    >
-      <VStack
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        textAlign="justify"
-        w="100%"
-      >
-        <Text fontSize="1.6em" color={colors.white}>
+    <Center as={Box} p={4} w="100%" h="100%">
+      <VStack textAlign="center">
+        <Text fontSize="1.6em" color={colors.base}>
           What is it?
         </Text>
-        <Text fontSize="1.3em" color={colors.white}>
+        <Text fontSize="1.3em" color={colors.base}>
           I am currently employed at Chaser. We're a small startup company
           focusing on invoice payments. We aim to reduce the time it takes to
           get companies invoices paid. We do this by automating the credit
           control process through e-mail reminders.
         </Text>
-      </VStack>
-      <VStack
-        justifyContent="flex-start"
-        alignItems="flex-start"
-        textAlign="justify"
-        w="100%"
-      >
-        <Text fontSize="1.6em" color={colors.white}>
+        <Text fontSize="1.6em" color={colors.base}>
           What are some notable achievements?
         </Text>
-        <Text fontSize="1.3em" color={colors.white}>
+        <Text fontSize="1.3em" color={colors.base}>
           I was involved in the first iteration of the redesign for Chasers UI.
           I introduced the company to React where I was able to develop the
           first iteration of a brand new Receivables. From there, we have
@@ -45,9 +34,8 @@ const Chaser = () => {
           stand-alone application via. Stripe. I also developed a collections
           project, that enables customers to escalate unpaid invoices.
         </Text>
-      </VStack>
-      <VStack alignItems="flex-start">
-        <Text fontSize="1.6em" color={colors.white}>
+
+        <Text fontSize="1.6em" color={colors.base}>
           Want to know more?
         </Text>
         <UnorderedList>
@@ -55,7 +43,7 @@ const Chaser = () => {
             <Text
               fontSize="1.3em"
               textDecoration="underline"
-              color={colors.white}
+              color={colors.base}
             >
               <a href="https://www.chaserhq.com/features">Receivables</a>
             </Text>
@@ -64,7 +52,7 @@ const Chaser = () => {
             <Text
               fontSize="1.3em"
               textDecoration="underline"
-              color={colors.white}
+              color={colors.base}
             >
               <a href="https://www.chaserhq.com/features/payment-portal">
                 Payment Portal
@@ -75,13 +63,13 @@ const Chaser = () => {
             <Text
               fontSize="1.3em"
               textDecoration="underline"
-              color={colors.white}
+              color={colors.base}
             >
               <a href="https://www.chaserhq.com/collections">Collections</a>
             </Text>
           </ListItem>
         </UnorderedList>
-        <Text fontSize="1.3em" color={colors.white}>
+        <Text fontSize="1.3em" color={colors.base}>
           Please check out our component library on NPM:{" "}
           <Text textDecoration="underline">
             {" "}
@@ -91,7 +79,7 @@ const Chaser = () => {
           </Text>
         </Text>
       </VStack>
-    </VStack>
+    </Center>
   );
 };
 
