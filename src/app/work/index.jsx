@@ -3,7 +3,14 @@ import Card from "../../components/Card/index.jsx";
 import { WrapItem, Box, Wrap } from "@chakra-ui/react";
 import { useHistory } from "react-router";
 import { useRouteMatch } from "react-router-dom";
-import Chaser from "./components/Chaser/index.jsx";
+
+import ChaserText from "./components/Chaser/index.jsx";
+import RockstarText from "./components/Rockstar/index.jsx";
+import SkyscannerText from "./components/Skyscanner/index.jsx";
+import RockstarQAText from "./components/RockstarQA/index.jsx";
+import CampText from "./components/CampTowanda/index.jsx";
+import UniText from "./components/Uni/index.jsx";
+
 import Bank from "../../assets/images/chaser.jpg";
 import Rockstar from "../../assets/images/rockstar.webp";
 import RockstarLincoln from "../../assets/images/lincoln.webp";
@@ -18,42 +25,42 @@ function getWorkPlaces() {
       img: Bank,
       title: "Chaser",
       subtitle: "Front-End Engineer \u25CF Remote",
-      body: <Chaser />,
+      body: <ChaserText />,
       id: "chaser",
     },
     {
       img: Skyscanner,
       title: "Skyscanner",
       subtitle: "Full-Stack Engineer",
-      body: `Notable projects:`,
+      body: <SkyscannerText />,
       id: "skyscanner",
     },
     {
       img: Rockstar,
       title: "Rockstar Games",
       subtitle: "Tools Engineer",
-      body: `Blah`,
+      body: <RockstarText />,
       id: "tools",
     },
     {
       img: RockstarLincoln,
       title: `Rockstar Games`,
       subtitle: "Quality Assurance",
-      body: `Blah`,
+      body: <RockstarQAText />,
       id: "qa",
     },
     {
       img: Towanda,
       title: "Camp Towanda",
-      subtitle: "Camp Towanda",
-      body: `Blah`,
+      subtitle: "Camp Counsellor",
+      body: <CampText />,
       id: "towanda",
     },
     {
       img: University,
       title: "University of Lincoln",
       subtitle: "Bachelors Degree",
-      body: `Blah`,
+      body: <UniText />,
       id: "lincoln",
     },
   ];
@@ -94,7 +101,7 @@ const Work = () => {
 
   return (
     <Box h="100%" w="100%" p={4}>
-      <Wrap h="100%" w="100%" display="flex">
+      <Wrap h="100%" w="100%" display="flex" spacing="10px">
         {workPlaces.map((job, key) => {
           const { title, img, subtitle, id, body } = job;
           return (

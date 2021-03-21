@@ -1,4 +1,4 @@
-import { Box, VStack, Text } from "@chakra-ui/react";
+import { Box, VStack } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
 import useControlProp from "../../hooks/useControlProp";
 
@@ -56,7 +56,12 @@ const Back = ({ shown, body, colors }) => {
     <VStack
       h="100%"
       w="100%"
+      borderWidth="1px"
+      borderColor={colors.blue}
       sx={{
+        ":hover": {
+          borderColor: colors.red,
+        },
         position: "absolute",
         transform: shown ? "rotateX(0deg)" : "rotateX(-180deg)",
         transformStyle: "preserve-3d",
@@ -90,6 +95,7 @@ const Card = ({
       minH="300px"
       minW="300px"
       display="block"
+      w="100%"
       position="relative"
       cursor="pointer"
       transformStyle="preserve-3d"

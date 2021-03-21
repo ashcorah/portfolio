@@ -1,12 +1,4 @@
-import {
-  VStack,
-  Text,
-  UnorderedList,
-  Box,
-  ListItem,
-  Center,
-  Heading,
-} from "@chakra-ui/react";
+import { VStack, Text, Box, Center, Heading } from "@chakra-ui/react";
 import usePalette from "../../../../hooks/usePallette";
 
 const Chaser = () => {
@@ -16,6 +8,7 @@ const Chaser = () => {
       <VStack
         spacing="8px"
         justifyContent="flex-start"
+        flexDirection="column"
         fontSize="14px"
         color={colors.base}
       >
@@ -31,26 +24,36 @@ const Chaser = () => {
         <Heading as="h5" size="xs">
           Things I worked on
         </Heading>
-        <Text textAlign="left">
-          <UnorderedList>
-            <ListItem>
-              <Text textDecoration="underline" color={colors.base}>
-                <a href="https://www.chaserhq.com/features">Receivables</a>
-              </Text>
-            </ListItem>
-            <ListItem>
-              <Text textDecoration="underline" color={colors.base}>
-                <a href="https://www.chaserhq.com/features/payment-portal">
-                  Payment Portal
-                </a>
-              </Text>
-            </ListItem>
-            <ListItem>
-              <Text textDecoration="underline" color={colors.base}>
-                <a href="https://www.chaserhq.com/collections">Collections</a>
-              </Text>
-            </ListItem>
-          </UnorderedList>
+        <Text textAlign="center">
+          I was the lead developer of the{" "}
+          <Text
+            as="a"
+            href="https://www.chaserhq.com/features/payment-portal"
+            textDecoration="underline"
+            color={colors.base}
+          >
+            Payment Portal
+          </Text>{" "}
+          which allows customers to pay directly through our system. I developed
+          the first iteration of our{" "}
+          <Text
+            as="a"
+            href="https://www.chaserhq.com/features"
+            textDecoration="underline"
+            color={colors.base}
+          >
+            Receivables
+          </Text>{" "}
+          which added React to Chasers tech stack. I developed our{" "}
+          <Text
+            as="a"
+            href="https://www.chaserhq.com/collections"
+            textDecoration="underline"
+            color={colors.base}
+          >
+            Collections
+          </Text>{" "}
+          system which allows customers to escalate invoices.
         </Text>
         <Text textAlign="center">
           Please check out the component library on NPM{" "}
