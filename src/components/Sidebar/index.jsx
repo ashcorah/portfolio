@@ -15,21 +15,10 @@ const Sidebar = () => {
   const location = useLocation();
   const colors = usePalette();
 
-  function color(path) {
-    switch (path) {
-      case "/about":
-        return colors.gold;
-      case "/gallery":
-        return colors.lavendar;
-      default:
-        return colors.blue;
-    }
-  }
-
   const title = (
-    <Stack textAlign="center">
+    <Stack textAlign="left">
       <Link to="/">
-        <Heading transition="0.5s all ease" color={color(location.pathname)}>
+        <Heading transition="0.5s all ease" color={colors.gay}>
           Ash Corah
         </Heading>
         <Text transition="0.5s all ease" color={colors.gray}>
@@ -41,7 +30,6 @@ const Sidebar = () => {
 
   // eslint-disable-next-line react/prop-types
   function NavLink({ to, children }) {
-    console.log(location);
     const isMatch =
       location.pathname.includes(to) ||
       (location.pathname === "/about" && to === "/");
@@ -66,57 +54,61 @@ const Sidebar = () => {
 
   return (
     <Box
-      justifyContent="center"
+      alignItems="flex-start"
       display="flex"
       backgroundColor="transparent"
       p={10}
       h="100%"
       w="100%"
     >
-      <VStack spacing={4}>
-        <VStack spacing={6}>{title}</VStack>
-        <VStack spacing="35px">
-          <HStack>
-            <IconButton
-              sx={{
-                ":hover": {
-                  color: colors.black,
-                },
-              }}
-              variant="ghost"
-              aria-label="github"
-              icon={<AiFillGithub size="30px" />}
-              color={colors.gray}
-            />
-            <IconButton
-              sx={{
-                ":hover": {
-                  color: colors.base,
-                },
-              }}
-              color={colors.gray}
-              variant="ghost"
-              aria-label="instagram"
-              icon={<AiFillInstagram size="30px" />}
-            />
-            <IconButton
-              sx={{
-                ":hover": {
-                  color: colors.base,
-                },
-              }}
-              color={colors.gray}
-              variant="ghost"
-              aria-label="linkedin"
-              icon={<AiFillLinkedin size="30px" />}
-            />
-          </HStack>
-          <VStack>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/work">Work</NavLink>
-            <NavLink to="/gallery">Gallery</NavLink>
-          </VStack>
+      <VStack spacing={8} alignItems="flex-start" display="flex" w="100%">
+        {title}
+        <VStack alignItems="flex-start" display="flex" w="100%">
+          <Text color={colors.lightGray} fontSize="14px">
+            Pages
+          </Text>
+          <NavLink to="/about">About</NavLink>
+          <NavLink to="/work">Work</NavLink>
+          <NavLink to="/gallery">Gallery</NavLink>
         </VStack>
+        <HStack alignItems="flex-start" display="flex" w="100%">
+          <IconButton
+            borderWidth="1px"
+            sx={{
+              ":hover": {
+                color: colors.black,
+              },
+            }}
+            variant="ghost"
+            aria-label="github"
+            icon={<AiFillGithub size="30px" />}
+            color={colors.gray}
+          />
+          <IconButton
+            borderWidth="1px"
+            sx={{
+              ":hover": {
+                color: colors.base,
+              },
+            }}
+            color={colors.gray}
+            variant="ghost"
+            aria-label="instagram"
+            icon={<AiFillInstagram size="30px" />}
+          />
+          <IconButton
+            borderWidth="1px"
+            sx={{
+              ":hover": {
+                color: colors.base,
+              },
+            }}
+            color={colors.gray}
+            variant="ghost"
+            aria-label="linkedin"
+            icon={<AiFillLinkedin size="30px" />}
+          />
+        </HStack>
       </VStack>
     </Box>
   );

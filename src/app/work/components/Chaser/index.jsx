@@ -16,16 +16,15 @@ const Chaser = () => {
           Chaser
         </Heading>
         <Text textAlign="center">
-          Chaser is a small startup company focusing on invoice payments. Chaser
-          aims to reduce the time it takes to get companies invoices paid. This
-          is achieved by automating the credit control process through e-mail
-          reminders.
+          A small startup company focusing on invoice payments. Aiming to reduce
+          the time it takes to get companies invoices paid. This is achieved by
+          automating the credit control process through e-mail reminders.
         </Text>
         <Heading as="h5" size="xs">
           Things I worked on
         </Heading>
         <Text textAlign="center">
-          I was the lead developer of the{" "}
+          Lead developer of the{" "}
           <Text
             as="a"
             href="https://www.chaserhq.com/features/payment-portal"
@@ -34,7 +33,7 @@ const Chaser = () => {
           >
             Payment Portal
           </Text>{" "}
-          which allows customers to pay directly through our system. I developed
+          which allows customers to pay directly through our system. Developed
           the first iteration of our{" "}
           <Text
             as="a"
@@ -44,7 +43,7 @@ const Chaser = () => {
           >
             Receivables
           </Text>{" "}
-          which added React to Chasers tech stack. I developed our{" "}
+          which added React to Chasers tech stack. Developed our{" "}
           <Text
             as="a"
             href="https://www.chaserhq.com/collections"

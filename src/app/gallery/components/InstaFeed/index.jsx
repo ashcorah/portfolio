@@ -23,8 +23,8 @@ const InstaFeed = ({ fields }) => {
     return <Center h="100%">Uh oh...something failed to load. 😔</Center>;
 
   return (
-    <Wrap w="100%" justify="center" textAlign="center">
-      {data.map(({ media_url, caption, media_type, thumbnail }) => {
+    <Wrap w="100%" spacing="20px" justify="center" textAlign="center">
+      {data.map(({ media_url, caption, media_type }) => {
         return (
           <WrapItem flex="1">
             <Stack h="100%" position="relative">

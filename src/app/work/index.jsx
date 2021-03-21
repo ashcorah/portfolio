@@ -101,7 +101,7 @@ const Work = () => {
 
   return (
     <Box h="100%" w="100%" p={4}>
-      <Wrap h="100%" w="100%" display="flex" spacing="10px">
+      <Wrap h="100%" w="100%" display="flex" spacing="20px">
         {workPlaces.map((job, key) => {
           const { title, img, subtitle, id, body } = job;
           return (

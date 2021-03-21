@@ -57,7 +57,7 @@ const theme = extendTheme({
 });
 
 function App() {
-  const [isMobile] = useMediaQuery("(max-width: 516px");
+  const [isMobile] = useMediaQuery("(max-width: 650px");
 
   return (
     <Fragment>

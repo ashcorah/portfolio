@@ -10,7 +10,7 @@ const Front = ({ image, shown, colors, title, subtitle }) => {
       sx={{
         backfaceVisibility: "hidden",
         position: "absolute",
-        transform: shown ? "rotateX(180deg)" : "rotateX(0deg)",
+        transform: shown ? "translateY(100%)" : "translateY(0%)",
         transformStyle: "preserve-3d",
         transition: "transform ease 500ms",
         zIndex: 2,
@@ -27,8 +27,7 @@ const Front = ({ image, shown, colors, title, subtitle }) => {
           filter: "grayscale(100%) brightness(50%)",
         },
         ":hover::before": {
-          filter: !shown && "grayscale(0%) brightness(100%)",
-          transform: !shown && "scale(1.1)",
+          filter: "grayscale(0%) brightness(100%)",
         },
       }}
     >
@@ -57,13 +56,13 @@ const Back = ({ shown, body, colors }) => {
       h="100%"
       w="100%"
       borderWidth="1px"
-      borderColor={colors.blue}
+      borderColor={colors.lightGray}
       sx={{
         ":hover": {
           borderColor: colors.red,
         },
         position: "absolute",
-        transform: shown ? "rotateX(0deg)" : "rotateX(-180deg)",
+        transform: shown ? "translateY(0%)" : "translateY(100%)",
         transformStyle: "preserve-3d",
         transition: "transform ease 600ms",
         backfaceVisibility: "hidden",
