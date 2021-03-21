@@ -5,72 +5,55 @@ import {
   Box,
   ListItem,
   Center,
+  Heading,
 } from "@chakra-ui/react";
 import usePalette from "../../../../hooks/usePallette";
 
 const Chaser = () => {
   const colors = usePalette();
   return (
-    <Center as={Box} p={4} w="100%" h="100%">
-      <VStack textAlign="center">
-        <Text fontSize="1.6em" color={colors.base}>
-          What is it?
+    <Center as={Box} p={4} w="100%" h="100%" overflow="auto">
+      <VStack
+        spacing="8px"
+        justifyContent="flex-start"
+        fontSize="14px"
+        color={colors.base}
+      >
+        <Heading as="h4" size="sm">
+          Chaser
+        </Heading>
+        <Text textAlign="center">
+          Chaser is a small startup company focusing on invoice payments. Chaser
+          aims to reduce the time it takes to get companies invoices paid. This
+          is achieved by automating the credit control process through e-mail
+          reminders.
         </Text>
-        <Text fontSize="1.3em" color={colors.base}>
-          I am currently employed at Chaser. We're a small startup company
-          focusing on invoice payments. We aim to reduce the time it takes to
-          get companies invoices paid. We do this by automating the credit
-          control process through e-mail reminders.
+        <Heading as="h5" size="xs">
+          Things I worked on
+        </Heading>
+        <Text textAlign="left">
+          <UnorderedList>
+            <ListItem>
+              <Text textDecoration="underline" color={colors.base}>
+                <a href="https://www.chaserhq.com/features">Receivables</a>
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text textDecoration="underline" color={colors.base}>
+                <a href="https://www.chaserhq.com/features/payment-portal">
+                  Payment Portal
+                </a>
+              </Text>
+            </ListItem>
+            <ListItem>
+              <Text textDecoration="underline" color={colors.base}>
+                <a href="https://www.chaserhq.com/collections">Collections</a>
+              </Text>
+            </ListItem>
+          </UnorderedList>
         </Text>
-        <Text fontSize="1.6em" color={colors.base}>
-          What are some notable achievements?
-        </Text>
-        <Text fontSize="1.3em" color={colors.base}>
-          I was involved in the first iteration of the redesign for Chasers UI.
-          I introduced the company to React where I was able to develop the
-          first iteration of a brand new Receivables. From there, we have
-          completely re-written the entire front-end. I was the lead in managing
-          and releasing a payment portal where clients can pay invoices using a
-          stand-alone application via. Stripe. I also developed a collections
-          project, that enables customers to escalate unpaid invoices.
-        </Text>
-
-        <Text fontSize="1.6em" color={colors.base}>
-          Want to know more?
-        </Text>
-        <UnorderedList>
-          <ListItem>
-            <Text
-              fontSize="1.3em"
-              textDecoration="underline"
-              color={colors.base}
-            >
-              <a href="https://www.chaserhq.com/features">Receivables</a>
-            </Text>
-          </ListItem>
-          <ListItem>
-            <Text
-              fontSize="1.3em"
-              textDecoration="underline"
-              color={colors.base}
-            >
-              <a href="https://www.chaserhq.com/features/payment-portal">
-                Payment Portal
-              </a>
-            </Text>
-          </ListItem>
-          <ListItem>
-            <Text
-              fontSize="1.3em"
-              textDecoration="underline"
-              color={colors.base}
-            >
-              <a href="https://www.chaserhq.com/collections">Collections</a>
-            </Text>
-          </ListItem>
-        </UnorderedList>
-        <Text fontSize="1.3em" color={colors.base}>
-          Please check out our component library on NPM:{" "}
+        <Text textAlign="center">
+          Please check out the component library on NPM{" "}
           <Text textDecoration="underline">
             {" "}
             <a href="https://www.npmjs.com/package/chaser-components">

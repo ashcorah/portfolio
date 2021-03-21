@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../components/Card/index.jsx";
 import { WrapItem, Box, Wrap } from "@chakra-ui/react";
 import { useHistory } from "react-router";
@@ -59,41 +59,52 @@ function getWorkPlaces() {
   ];
 }
 
-const Work = () => {
+const CardItem = ({ key, subtitle, title, image, id, body }) => {
   const history = useHistory();
-  const colors = usePalette();
-  const workPlaces = getWorkPlaces(colors);
+  const [jobOpen, setJobOpen] = useState(false);
+
   const { params } = useRouteMatch(`/work/:job`) || {};
   const selectedJob = params?.job;
+  const isSelected = id === selectedJob;
+
+  function toggleJob(shown) {
+    if (shown) history.push(`/work/${id}`);
+    else history.push(`/work`);
+    setJobOpen(shown);
+  }
 
   return (
-    <Box h="100%" w="100%">
-      <Wrap
-        pt={4}
-        pb={6}
-        pr={10}
-        h="100%"
-        w="100%"
-        display="flex"
-        sx={{
-          "> ul": {
-            width: "100%",
-          },
-        }}
-      >
+    <WrapItem
+      key={key}
+      body={body}
+      flex="1 1 380px"
+      as={Card}
+      subtitle={subtitle}
+      title={title}
+      image={image}
+      showBack={jobOpen || isSelected}
+      onToggle={toggleJob}
+    />
+  );
+};
+
+const Work = () => {
+  const colors = usePalette();
+  const workPlaces = getWorkPlaces(colors);
+
+  return (
+    <Box h="100%" w="100%" p={4}>
+      <Wrap h="100%" w="100%" display="flex">
         {workPlaces.map((job, key) => {
-          const { title, img, subtitle, id } = job;
-          const isSelected = id === selectedJob;
+          const { title, img, subtitle, id, body } = job;
           return (
-            <WrapItem
-              isSelected={isSelected}
+            <CardItem
               key={key}
-              flex="1 1 380px"
-              as={Card}
-              onClick={() => history.push(`/work/${id}`)}
               subtitle={subtitle}
               title={title}
               image={img}
+              id={id}
+              body={body}
             />
           );
         })}
