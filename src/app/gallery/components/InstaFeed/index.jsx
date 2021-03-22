@@ -43,7 +43,8 @@ const InstaFeed = ({ fields }) => {
                   overflow="hidden"
                   transition="0.5s all ease"
                   filter="grayscale(100%) brightness(50%)"
-                  height="100%"
+                  maxH="300px"
+                  w="100%"
                   sx={{
                     ":hover": {
                       filter: "grayscale(0%) brightness(100%)",
@@ -60,6 +61,9 @@ const InstaFeed = ({ fields }) => {
                       onMouseOver={(event) => event.target.play()}
                       onMouseOut={(event) => event.target.pause()}
                       src={media_url}
+                      style={{
+                        minWidth: "250px",
+                      }}
                       wrapperStyle={{
                         minWidth: "200px",
                         height: "100%",
@@ -77,7 +81,7 @@ const InstaFeed = ({ fields }) => {
                           transformOrigin: "50% 50%",
                         },
                       }}
-                      minW="200px"
+                      minW="250px"
                       h="100%"
                       objectFit="cover"
                       src={media_url}

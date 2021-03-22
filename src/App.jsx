@@ -7,7 +7,7 @@ import Sidebar from "./components/Sidebar/index.jsx";
 import { ChakraProvider, extendTheme, SimpleGrid } from "@chakra-ui/react";
 import Fonts from "./components/Fonts/index.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
-// import useMobile from "./hooks/useMobile";
+import useMobile from "./hooks/useMobile";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -53,14 +53,21 @@ const theme = extendTheme({
 });
 
 function App() {
-  // const isMobile = useMobile();
+  const isMobile = useMobile();
   return (
     <Fragment>
       <QueryClientProvider client={queryClient}>
         <ChakraProvider theme={theme}>
           <Fonts />
           <Router>
-            <SimpleGrid h="100%" gridTemplateColumns="auto">
+            <SimpleGrid
+              h="100%"
+              gridTemplateColumns={
+                isMobile
+                  ? "auto"
+                  : "250px repeat(auto-fit, minmax(250px, auto))"
+              }
+            >
               <aside>
                 <Sidebar />
               </aside>
