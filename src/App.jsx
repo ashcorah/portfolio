@@ -69,7 +69,7 @@ function App() {
               h="100%"
               gridTemplateColumns={
                 isMobile
-                  ? "repeat(auto-fit, minmax(250px, auto))"
+                  ? "auto"
                   : "250px repeat(auto-fit, minmax(250px, auto))"
               }
             >

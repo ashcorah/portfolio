@@ -31,18 +31,7 @@ const About = () => {
   const enjoys = ["BMX", "Snowboard", "Mountain Biking"];
 
   return (
-    <Box w="100%" h="100%" p={4}
-      sx={{
-        ":hover": {
-          ".ash": {
-            filter: "unset"
-          },
-          ".skt": {
-            filter: "grayscale(100%) blur(0px) brightness(50%)"
-          }
-        }
-      }}
-    >
+    <Box w="100%" h="100%" p={4}>
       <Box w="100%" h="100%" position="relative">
         <Image
           transition="0.5s all ease"
