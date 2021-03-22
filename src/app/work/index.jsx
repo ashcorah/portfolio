@@ -11,9 +11,9 @@ import RockstarQAText from "./components/RockstarQA/index.jsx";
 import CampText from "./components/CampTowanda/index.jsx";
 import UniText from "./components/Uni/index.jsx";
 
-import Bank from "../../assets/images/chaser.jpg";
-import Rockstar from "../../assets/images/rockstar.webp";
-import RockstarLincoln from "../../assets/images/lincoln.webp";
+import Bank from "../../assets/images/chaser.webp";
+import Rockstar from "../../assets/images/rockstar.jpg";
+import RockstarLincoln from "../../assets/images/lincoln.jpg";
 import Skyscanner from "../../assets/images/skyscanner.jpg";
 import Towanda from "../../assets/images/honesdale.jpg";
 import University from "../../assets/images/university.jpg";

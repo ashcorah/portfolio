@@ -5,6 +5,7 @@ import { string } from "prop-types";
 import usePalette from "../../../../hooks/usePallette";
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import { VideoProgress } from "react-video-progress";
+import style from "./InstaFeed.module.scss";
 
 const InstaFeed = ({ fields }) => {
   const colors = usePalette();
@@ -14,7 +15,7 @@ const InstaFeed = ({ fields }) => {
 
   if (isLoading)
     return (
-      <Center>
+      <Center h="100%" w="100%">
         <ClimbingBoxLoader color={colors.lavendar} />
       </Center>
     );
@@ -24,7 +25,7 @@ const InstaFeed = ({ fields }) => {
 
   return (
     <Wrap w="100%" spacing="20px" justify="center" textAlign="center">
-      {data.map(({ media_url, caption, media_type }) => {
+      {data?.map(({ media_url, caption, media_type }) => {
         return (
           <WrapItem flex="1">
             <Stack h="100%" position="relative">
@@ -53,8 +54,9 @@ const InstaFeed = ({ fields }) => {
                     <VideoProgress
                       progressStart="BottomLeft"
                       type="BottomLine"
-                      pathColor={colors.red}
+                      pathColor="#c4302b"
                       pathWidth="4px"
+                      wrapperClassName={style.loading}
                       onMouseOver={(event) => event.target.play()}
                       onMouseOut={(event) => event.target.pause()}
                       src={media_url}

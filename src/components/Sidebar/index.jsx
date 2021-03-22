@@ -38,7 +38,7 @@ const Sidebar = () => {
         <Text
           sx={{
             cursor: "pointer",
-            color: isMatch ? colors.black : colors.gray,
+            color: isMatch ? colors.base : colors.gray,
             fontWeight: isMatch ? "bold" : "normal",
             fontSize: "1em",
             ":hover": {
@@ -76,7 +76,7 @@ const Sidebar = () => {
             borderWidth="1px"
             sx={{
               ":hover": {
-                color: colors.black,
+                color: colors.base,
               },
             }}
             variant="ghost"
