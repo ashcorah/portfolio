@@ -2,31 +2,53 @@ import { Center, Image, Text, VStack, Box, HStack } from "@chakra-ui/react";
 import Ash from "../../assets/images/ash.jpg";
 import Skatepark from "../../assets/images/skatepark.jpg";
 import usePalette from "../../hooks/usePallette";
-import PageContainer from '../../components/PageContainer/index.jsx';
+import PageContainer from "../../components/PageContainer/index.jsx";
 
 const ToolSection = ({ skills, title }) => (
   <VStack>
     <Text color="white">{title}</Text>
-    <HStack justifyContent="center" flexWrap="wrap" display="flex" spacing="2px">
-      {skills.map(skill => (
+    <HStack
+      justifyContent="center"
+      flexWrap="wrap"
+      display="flex"
+      spacing="2px"
+    >
+      {skills.map((skill) => (
         <ToolkitBox skill={skill} />
       ))}
     </HStack>
   </VStack>
-)
+);
 
 const ToolkitBox = ({ skill }) => {
   const colors = usePalette();
 
   return (
-    <Box pl={2} pr={2} color="white" fontWeight="bold" borderWidth="1px" borderColor={colors.gray}>
+    <Box
+      pl={2}
+      pr={2}
+      color="white"
+      borderWidth="1px"
+      borderColor={colors.gray}
+    >
       {skill}
     </Box>
-  )
-}
+  );
+};
 
 const About = () => {
-  const skills = ["Git", "NodeJS", "HTML", "CSS", "Sass", "JS", "React", "Redux", "GraphQL", "Jest"];
+  const skills = [
+    "Git",
+    "NodeJS",
+    "HTML",
+    "CSS",
+    "Sass",
+    "JS",
+    "React",
+    "Redux",
+    "GraphQL",
+    "Jest",
+  ];
   const knows = ["MongoDB", "Styled components"];
   const dabbled = ["Docker", "Typescript", "NextJS", "GatsbyJS"];
   const enjoys = ["BMX", "Snowboard", "Mountain Biking"];
@@ -62,22 +84,10 @@ const About = () => {
             <Text color="white" textAlign="center">
               I'm Ash Corah, a Software Engineer from Edinburgh.
             </Text>
-            <ToolSection
-              title="Toolkit"
-              skills={skills}
-            />
-            <ToolSection
-              title="Knows my way around"
-              skills={knows}
-            />
-            <ToolSection
-              title="Dabbled with"
-              skills={dabbled}
-            />
-            <ToolSection
-              title="Dat extra curricular"
-              skills={enjoys}
-            />
+            <ToolSection title="Toolkit" skills={skills} />
+            <ToolSection title="Knows my way around" skills={knows} />
+            <ToolSection title="Dabbled with" skills={dabbled} />
+            <ToolSection title="Dat extra curricular" skills={enjoys} />
           </VStack>
         </Center>
       </Box>

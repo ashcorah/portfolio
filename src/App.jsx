@@ -4,7 +4,7 @@ import Work from "./app/work/index.jsx";
 import About from "./app/about/index.jsx";
 import Gallery from "./app/gallery/index.jsx";
 import Sidebar from "./components/Sidebar/index.jsx";
-import { ChakraProvider, extendTheme, Grid } from "@chakra-ui/react";
+import { ChakraProvider, extendTheme, SimpleGrid } from "@chakra-ui/react";
 import Fonts from "./components/Fonts/index.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
 import useMobile from "./hooks/useMobile";
@@ -60,17 +60,15 @@ function App() {
         <ChakraProvider theme={theme}>
           <Fonts />
           <Router>
-            <Grid
+            <SimpleGrid
               h="100%"
-              templateColumns={
-                !isMobile
-                  ? "250px repeat(auto-fit, minmax(250px, auto))"
-                  : "none"
+              gridTemplateColumns={
+                isMobile
+                  ? "auto"
+                  : "250px repeat(auto-fit, minmax(250px, auto))"
               }
             >
-              <aside>
-                <Sidebar />
-              </aside>
+              <Sidebar />
               <main>
                 <Switch>
                   <Route path="/work" component={Work} />
@@ -78,7 +76,7 @@ function App() {
                   <Route path="/" component={About} />
                 </Switch>
               </main>
-            </Grid>
+            </SimpleGrid>
           </Router>
         </ChakraProvider>
       </QueryClientProvider>
