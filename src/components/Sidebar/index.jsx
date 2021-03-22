@@ -9,7 +9,7 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin } from "react-icons/ai";
+import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -71,44 +71,68 @@ const Sidebar = () => {
           <NavLink to="/work">Work</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>
         </VStack>
-        <HStack alignItems="flex-start" display="flex" w="100%">
-          <IconButton
-            borderWidth="1px"
-            sx={{
-              ":hover": {
-                color: colors.base,
-              },
-            }}
-            variant="ghost"
-            aria-label="github"
-            icon={<AiFillGithub size="30px" />}
-            color={colors.gray}
-          />
-          <IconButton
-            borderWidth="1px"
-            sx={{
-              ":hover": {
-                color: colors.base,
-              },
-            }}
-            color={colors.gray}
-            variant="ghost"
-            aria-label="instagram"
-            icon={<AiFillInstagram size="30px" />}
-          />
-          <IconButton
-            borderWidth="1px"
-            sx={{
-              ":hover": {
-                color: colors.base,
-              },
-            }}
-            color={colors.gray}
-            variant="ghost"
-            aria-label="linkedin"
-            icon={<AiFillLinkedin size="30px" />}
-          />
-        </HStack>
+        <VStack spacing={2}>
+          <HStack alignItems="flex-start" display="flex" w="100%">
+            <IconButton
+              as="a"
+              href="https://github.com/ashcorah"
+              borderWidth="1px"
+              sx={{
+                ":hover": {
+                  color: colors.base,
+                },
+              }}
+              variant="ghost"
+              aria-label="github"
+              icon={<AiFillGithub size="30px" />}
+              color={colors.gray}
+            />
+            <IconButton
+              as="a"
+              href="https://www.instagram.com/trashcorah/"
+              borderWidth="1px"
+              sx={{
+                ":hover": {
+                  color: colors.base,
+                },
+              }}
+              color={colors.gray}
+              variant="ghost"
+              aria-label="instagram"
+              icon={<AiFillInstagram size="30px" />}
+            />
+          </HStack>
+          <HStack alignItems="flex-start" display="flex" w="100%">
+            <IconButton
+              as="a"
+              href="https://www.linkedin.com/in/ashcorah/"
+              borderWidth="1px"
+              sx={{
+                ":hover": {
+                  color: colors.base,
+                },
+              }}
+              color={colors.gray}
+              variant="ghost"
+              aria-label="linkedin"
+              icon={<AiFillLinkedin size="30px" />}
+            />
+            <IconButton
+              as="a"
+              href="mailto:ashcorah@gmail.com"
+              borderWidth="1px"
+              sx={{
+                ":hover": {
+                  color: colors.base,
+                },
+              }}
+              color={colors.gray}
+              variant="ghost"
+              aria-label="email"
+              icon={<AiOutlineMail size="30px" />}
+            />
+          </HStack>
+        </VStack>
       </VStack>
     </Box>
   );

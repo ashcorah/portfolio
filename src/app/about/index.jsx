@@ -2,6 +2,7 @@ import { Center, Image, Text, VStack, Box, HStack } from "@chakra-ui/react";
 import Ash from "../../assets/images/ash.jpg";
 import Skatepark from "../../assets/images/skatepark.jpg";
 import usePalette from "../../hooks/usePallette";
+import PageContainer from '../../components/PageContainer/index.jsx';
 
 const ToolSection = ({ skills, title }) => (
   <VStack>
@@ -31,7 +32,7 @@ const About = () => {
   const enjoys = ["BMX", "Snowboard", "Mountain Biking"];
 
   return (
-    <Box w="100%" h="100%" p={4}>
+    <PageContainer>
       <Box w="100%" h="100%" position="relative">
         <Image
           transition="0.5s all ease"
@@ -66,7 +67,7 @@ const About = () => {
               skills={skills}
             />
             <ToolSection
-              title="Knows his way around"
+              title="Knows my way around"
               skills={knows}
             />
             <ToolSection
@@ -74,13 +75,13 @@ const About = () => {
               skills={dabbled}
             />
             <ToolSection
-              title="Enjoys"
+              title="Dat extra curricular"
               skills={enjoys}
             />
           </VStack>
         </Center>
       </Box>
-    </Box>
+    </PageContainer>
   );
 };
 

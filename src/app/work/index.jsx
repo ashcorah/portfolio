@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Card from "../../components/Card/index.jsx";
-import { WrapItem, Box, Wrap } from "@chakra-ui/react";
+import { WrapItem, Wrap } from "@chakra-ui/react";
 import { useHistory } from "react-router";
 import { useRouteMatch } from "react-router-dom";
+import PageContainer from '../../components/PageContainer/index.jsx';
 
 import ChaserText from "./components/Chaser/index.jsx";
 import RockstarText from "./components/Rockstar/index.jsx";
@@ -100,7 +101,7 @@ const Work = () => {
   const workPlaces = getWorkPlaces(colors);
 
   return (
-    <Box h="100%" w="100%" p={4}>
+    <PageContainer>
       <Wrap h="100%" w="100%" display="flex" spacing="20px">
         {workPlaces.map((job, key) => {
           const { title, img, subtitle, id, body } = job;
@@ -116,7 +117,7 @@ const Work = () => {
           );
         })}
       </Wrap>
-    </Box>
+    </PageContainer>
   );
 };
 
