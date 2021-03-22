@@ -60,15 +60,10 @@ function App() {
         <ChakraProvider theme={theme}>
           <Fonts />
           <Router>
-            <SimpleGrid
-              h="100%"
-              gridTemplateColumns={
-                isMobile
-                  ? "auto"
-                  : "250px repeat(auto-fit, minmax(250px, auto))"
-              }
-            >
-              <Sidebar />
+            <SimpleGrid h="100%" gridTemplateColumns="auto">
+              <aside>
+                <Sidebar />
+              </aside>
               <main>
                 <Switch>
                   <Route path="/work" component={Work} />
