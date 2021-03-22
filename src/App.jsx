@@ -4,14 +4,10 @@ import Work from "./app/work/index.jsx";
 import About from "./app/about/index.jsx";
 import Gallery from "./app/gallery/index.jsx";
 import Sidebar from "./components/Sidebar/index.jsx";
-import {
-  ChakraProvider,
-  extendTheme,
-  SimpleGrid,
-} from "@chakra-ui/react";
+import { ChakraProvider, extendTheme, SimpleGrid } from "@chakra-ui/react";
 import Fonts from "./components/Fonts/index.jsx";
 import { QueryClient, QueryClientProvider } from "react-query";
-import useMobile from './hooks/useMobile';
+import useMobile from "./hooks/useMobile";
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -68,7 +64,7 @@ function App() {
               h="100%"
               gridTemplateColumns={
                 isMobile
-                  ? "auto"
+                  ? "none"
                   : "250px repeat(auto-fit, minmax(250px, auto))"
               }
             >
