@@ -85,7 +85,7 @@ const About = () => {
               I'm Ash Corah, a Software Engineer from Edinburgh.
             </Text>
             <ToolSection title="Toolkit" skills={skills} />
-            <ToolSection title="Knows my way around" skills={knows} />
+            <ToolSection title="Know my way around" skills={knows} />
             <ToolSection title="Dabbled with" skills={dabbled} />
             <ToolSection title="Dat extra curricular" skills={enjoys} />
           </VStack>
