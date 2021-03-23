@@ -1,5 +1,13 @@
 import { useQuery } from "react-query";
-import { Wrap, Image, WrapItem, Text, Stack, Center } from "@chakra-ui/react";
+import {
+  Wrap,
+  Image,
+  WrapItem,
+  Box,
+  Text,
+  Stack,
+  Center,
+} from "@chakra-ui/react";
 import getInstagramAccount from "../../../../services/getInstagramAccount";
 import { string } from "prop-types";
 import usePalette from "../../../../hooks/usePallette";
@@ -39,11 +47,15 @@ const InstaFeed = ({ fields }) => {
                   },
                 }}
               >
-                <Stack
+                <Box
+                  p={0}
                   overflow="hidden"
                   transition="0.5s all ease"
                   filter="grayscale(100%) brightness(50%)"
-                  maxH="300px"
+                  maxH="350px"
+                  minW="350px"
+                  minH="350px"
+                  h="100%"
                   w="100%"
                   sx={{
                     ":hover": {
@@ -62,11 +74,10 @@ const InstaFeed = ({ fields }) => {
                       onMouseOut={(event) => event.target.pause()}
                       src={media_url}
                       style={{
-                        minWidth: "250px",
+                        width: "100%",
                       }}
                       wrapperStyle={{
-                        minWidth: "200px",
-                        height: "100%",
+                        width: "100%",
                         filter: "brightness(100%)",
                       }}
                       preload="auto"
@@ -81,13 +92,13 @@ const InstaFeed = ({ fields }) => {
                           transformOrigin: "50% 50%",
                         },
                       }}
-                      minW="250px"
                       h="100%"
+                      w="100%"
                       objectFit="cover"
                       src={media_url}
                     />
                   )}
-                </Stack>
+                </Box>
                 <Text
                   position="absolute"
                   maxW="120px"
