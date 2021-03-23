@@ -9,7 +9,7 @@ const Chaser = () => {
         spacing="8px"
         justifyContent="flex-start"
         fontSize="14px"
-        color={colors.base}
+        color={colors.white}
       >
         <Heading as="h4" size="sm">
           Skyscanner, Full-stack Engineer
@@ -22,9 +22,8 @@ const Chaser = () => {
           Things I worked on
         </Heading>
         <Text textAlign="center">
-          I worked on internal tools development, from Slack integrations to
-          internal communication tooling. My primary resonsibility was the
-          development of Flightdeck Flightdeck enabled employees to effectively
+          I worked on internal tools development. My primary resonsibility was
+          the development of Flightdeck which enabled employees to effectively
           communicate and find each other within a global environment.
         </Text>
       </VStack>

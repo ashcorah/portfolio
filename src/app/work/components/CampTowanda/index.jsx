@@ -10,7 +10,7 @@ const Chaser = () => {
         justifyContent="flex-start"
         flexDirection="column"
         fontSize="14px"
-        color={colors.base}
+        color={colors.white}
       >
         <Heading as="h4" size="sm">
           Camp Towanda, Camp Counsellor
@@ -22,11 +22,10 @@ const Chaser = () => {
           Things I worked on
         </Heading>
         <Text textAlign="center">
-          I was resposible for keep track of approximately 20 kids, day in, day
-          out for 7 weeks. It was a 24 hours job with 1 day off a week.
-          Difficult but highly rewarding. My job was to keep my allocated kids
-          safe, entertained and take them to different activities throughout the
-          day.
+          Kept track of approximately 20 kids, day in, day out for 7 weeks. 24
+          hour job with 1 day off a week. Difficult and highly rewarding. My job
+          was to keep my kids safe, entertained and take them to different
+          activities throughout the day.
         </Text>
         <Text textAlign="center">
           Check out{" "}

@@ -10,15 +10,14 @@ const Chaser = () => {
         justifyContent="flex-start"
         flexDirection="column"
         fontSize="14px"
-        color={colors.base}
+        color={colors.white}
       >
         <Heading as="h4" size="sm">
           Chaser
         </Heading>
         <Text textAlign="center">
-          A small startup company focusing on invoice payments. Aiming to reduce
-          the time it takes to get companies invoices paid. This is achieved by
-          automating the credit control process through e-mail reminders.
+          A small startup company focusing on invoice payments. Automating the
+          credit control process.
         </Text>
         <Heading as="h5" size="xs">
           Things I worked on
@@ -29,7 +28,6 @@ const Chaser = () => {
             as="a"
             href="https://www.chaserhq.com/features/payment-portal"
             textDecoration="underline"
-            color={colors.base}
           >
             Payment Portal
           </Text>{" "}
@@ -39,7 +37,6 @@ const Chaser = () => {
             as="a"
             href="https://www.chaserhq.com/features"
             textDecoration="underline"
-            color={colors.base}
           >
             Receivables
           </Text>{" "}
@@ -48,7 +45,6 @@ const Chaser = () => {
             as="a"
             href="https://www.chaserhq.com/collections"
             textDecoration="underline"
-            color={colors.base}
           >
             Collections
           </Text>{" "}

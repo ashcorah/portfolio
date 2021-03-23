@@ -9,7 +9,7 @@ const Chaser = () => {
         spacing="8px"
         justifyContent="flex-start"
         fontSize="14px"
-        color={colors.base}
+        color={colors.white}
       >
         <Heading as="h4" size="sm">
           University of Lincoln, Student
@@ -19,9 +19,9 @@ const Chaser = () => {
           Things I worked on
         </Heading>
         <Text textAlign="center">
-          I graduated with a 2:1 in Computer Science at the University of
-          Lincoln. In my third year, I wrote a dissertation on an investigation
-          into how emotions can be perceived through robotics.
+          2:1 in Computer Science at the University of Lincoln. I wrote a
+          dissertation on an investigation into how emotions can be perceived
+          through robotics.
         </Text>
       </VStack>
     </Center>

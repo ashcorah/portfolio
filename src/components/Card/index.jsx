@@ -55,12 +55,8 @@ const Back = ({ shown, body, colors }) => {
     <VStack
       h="100%"
       w="100%"
-      borderWidth="1px"
-      borderColor={colors.lightGray}
+      background={colors.black}
       sx={{
-        ":hover": {
-          borderColor: colors.red,
-        },
         position: "absolute",
         transform: shown ? "translateY(0%)" : "translateY(100%)",
         transformStyle: "preserve-3d",
