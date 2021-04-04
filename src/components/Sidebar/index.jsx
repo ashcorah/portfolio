@@ -9,19 +9,30 @@ import {
   IconButton,
 } from "@chakra-ui/react";
 import usePalette from "../../hooks/usePallette";
-import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
+import {
+  AiFillGithub,
+  AiFillInstagram,
+  AiFillLinkedin,
+  AiOutlineMail,
+} from "react-icons/ai";
 
 const Sidebar = () => {
   const location = useLocation();
   const colors = usePalette();
 
   const title = (
-    <Stack textAlign="left">
+    <Stack
+      textAlign="left"
+      sx={{
+        ":hover *": {
+          color:
+            colors[["red", "blue", "green"][Math.floor(Math.random() * 3)]],
+        },
+      }}
+    >
       <Link to="/">
-        <Heading transition="0.5s all ease" color={colors.gay}>
-          Ash Corah
-        </Heading>
-        <Text transition="0.5s all ease" color={colors.gray}>
+        <Heading transition="0.3s all ease">Ash Corah</Heading>
+        <Text transition="0.3s all ease" color={colors.gray}>
           Software Engineer
         </Text>
       </Link>
@@ -64,9 +75,6 @@ const Sidebar = () => {
       <VStack spacing={8} alignItems="flex-start" display="flex" w="100%">
         {title}
         <VStack alignItems="flex-start" display="flex" w="100%">
-          <Text color={colors.lightGray} fontSize="14px">
-            Pages
-          </Text>
           <NavLink to="/about">About</NavLink>
           <NavLink to="/work">Work</NavLink>
           <NavLink to="/gallery">Gallery</NavLink>

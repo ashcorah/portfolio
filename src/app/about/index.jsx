@@ -1,8 +1,17 @@
-import { Center, Image, Text, VStack, Box, HStack } from "@chakra-ui/react";
+import {
+  Center,
+  Image,
+  Text,
+  VStack,
+  Box,
+  HStack,
+  Button,
+} from "@chakra-ui/react";
 import Ash from "../../assets/images/ash.jpg";
 import Skatepark from "../../assets/images/skatepark.jpg";
 import usePalette from "../../hooks/usePallette";
 import PageContainer from "../../components/PageContainer/index.jsx";
+import { AiOutlineMail } from "react-icons/ai";
 
 const ToolSection = ({ skills, title }) => (
   <VStack>
@@ -11,7 +20,7 @@ const ToolSection = ({ skills, title }) => (
       justifyContent="center"
       flexWrap="wrap"
       display="flex"
-      spacing="2px"
+      spacing="3px"
     >
       {skills.map((skill) => (
         <ToolkitBox skill={skill} />
@@ -37,20 +46,30 @@ const ToolkitBox = ({ skill }) => {
 };
 
 const About = () => {
+  const colors = usePalette();
   const skills = [
     "Git",
     "NodeJS",
     "HTML",
     "CSS",
     "Sass",
-    "JS",
+    "JavaScript",
     "React",
     "Redux",
     "GraphQL",
     "Jest",
+    "Agile",
   ];
   const knows = ["MongoDB", "Styled components"];
-  const dabbled = ["Docker", "Typescript", "NextJS", "GatsbyJS"];
+  const dabbled = [
+    "Docker",
+    "AWS",
+    "GCP",
+    "VueJS",
+    "Typescript",
+    "NextJS",
+    "GatsbyJS",
+  ];
   const enjoys = ["BMX", "Snowboard", "Mountain Biking"];
 
   return (
@@ -70,24 +89,57 @@ const About = () => {
           zIndex="-1"
         />
         <Center alignItems="flex-start" h="100%" p={10} pt="100px">
-          <VStack spacing={18} justifyContent="center" display="flex">
-            <Image
-              transition="0.5s all ease"
-              className="ash"
-              src={Ash}
-              borderRadius="100%"
-              filter="grayscale(100%)"
-            />
-            <Text fontWeight="bold" color="white" textAlign="center">
-              Welcome to corah.xyz.
-            </Text>
-            <Text color="white" textAlign="center">
-              I'm Ash Corah, a Software Engineer from Edinburgh.
-            </Text>
-            <ToolSection title="Toolkit" skills={skills} />
-            <ToolSection title="Know my way around" skills={knows} />
-            <ToolSection title="Dabbled with" skills={dabbled} />
-            <ToolSection title="Dat extra curricular" skills={enjoys} />
+          <VStack spacing={10}>
+            <VStack spacing={6} display="flex">
+              <Image
+                transition="0.5s all ease"
+                className="ash"
+                src={Ash}
+                maxW="180px"
+                objectFit="cover"
+                borderRadius="5%"
+                filter="grayscale(100%)"
+                sx={{
+                  ":hover": {
+                    filter: "grayscale(0%)",
+                  },
+                }}
+              />
+              <VStack spacing={8} display="flex" justifyContent="flex-start">
+                <VStack spacing={0} display="flex" justifyContent="flex-start">
+                  <Text color="white" textAlign="center" maxW="450px">
+                    I'm an Edinburgh-based software engineer who specializes in
+                    building things for the web. Currently, I'm an engineer at a{" "}
+                    <Text
+                      as="a"
+                      href="https://www.chaserhq.com/"
+                      textDecoration="underline"
+                    >
+                      Chaser
+                    </Text>
+                    , a start-up in London focused on getting companies paid on
+                    time.
+                  </Text>
+                </VStack>
+                <VStack spacing={4}>
+                  <ToolSection title="Toolkit" skills={skills} />
+                  <ToolSection title="Know my way around" skills={knows} />
+                  <ToolSection title="Dabbled with" skills={dabbled} />
+                  <ToolSection title="Interests" skills={enjoys} />
+                </VStack>
+              </VStack>
+            </VStack>
+            <Button
+              as="a"
+              href="mailto:ashcorah@gmail.com"
+              leftIcon={<AiOutlineMail />}
+              fontWeight="normal"
+              color="white"
+              _hover={{ borderColor: colors.red }}
+              variant="outline"
+            >
+              Get in touch
+            </Button>
           </VStack>
         </Center>
       </Box>

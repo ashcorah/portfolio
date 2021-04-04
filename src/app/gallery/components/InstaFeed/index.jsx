@@ -36,7 +36,7 @@ const InstaFeed = ({ fields }) => {
       {data?.map(({ media_url, caption, media_type }) => {
         return (
           <WrapItem flex="1">
-            <Stack h="100%" position="relative">
+            <Stack h="100%" w="100%" position="relative">
               <Center
                 h="100%"
                 sx={{
@@ -56,6 +56,7 @@ const InstaFeed = ({ fields }) => {
                   minW="350px"
                   minH="350px"
                   h="100%"
+                  className={style.loading}
                   w="100%"
                   sx={{
                     ":hover": {
@@ -69,7 +70,6 @@ const InstaFeed = ({ fields }) => {
                       type="BottomLine"
                       pathColor="#c4302b"
                       pathWidth="4px"
-                      wrapperClassName={style.loading}
                       onMouseOver={(event) => event.target.play()}
                       onMouseOut={(event) => event.target.pause()}
                       src={media_url}

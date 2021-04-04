@@ -3,7 +3,7 @@ import Card from "../../components/Card/index.jsx";
 import { WrapItem, Wrap } from "@chakra-ui/react";
 import { useHistory } from "react-router";
 import { useRouteMatch } from "react-router-dom";
-import PageContainer from '../../components/PageContainer/index.jsx';
+import PageContainer from "../../components/PageContainer/index.jsx";
 
 import ChaserText from "./components/Chaser/index.jsx";
 import RockstarText from "./components/Rockstar/index.jsx";
@@ -27,12 +27,15 @@ function getWorkPlaces() {
       title: "Chaser",
       subtitle: "Front-End Engineer \u25CF Remote",
       body: <ChaserText />,
+      externalLink: "https://www.chaserhq.com",
+      githubLink: "https://www.npmjs.com/package/chaser-components",
       id: "chaser",
     },
     {
       img: Skyscanner,
       title: "Skyscanner",
       subtitle: "Full-Stack Engineer",
+      externalLink: "https://www.skyscanner.net/",
       body: <SkyscannerText />,
       id: "skyscanner",
     },
@@ -54,6 +57,7 @@ function getWorkPlaces() {
       img: Towanda,
       title: "Camp Towanda",
       subtitle: "Camp Counsellor",
+      externalLink: "https://www.camptowanda.com/",
       body: <CampText />,
       id: "towanda",
     },
@@ -67,7 +71,16 @@ function getWorkPlaces() {
   ];
 }
 
-const CardItem = ({ key, subtitle, title, image, id, body }) => {
+const CardItem = ({
+  key,
+  subtitle,
+  title,
+  image,
+  id,
+  body,
+  externalLink,
+  githubLink,
+}) => {
   const history = useHistory();
   const [jobOpen, setJobOpen] = useState(false);
 
@@ -90,6 +103,8 @@ const CardItem = ({ key, subtitle, title, image, id, body }) => {
       subtitle={subtitle}
       title={title}
       image={image}
+      externalLink={externalLink}
+      githubLink={githubLink}
       showBack={jobOpen || isSelected}
       onToggle={toggleJob}
     />
@@ -104,7 +119,15 @@ const Work = () => {
     <PageContainer>
       <Wrap h="100%" w="100%" display="flex" spacing="20px">
         {workPlaces.map((job, key) => {
-          const { title, img, subtitle, id, body } = job;
+          const {
+            title,
+            img,
+            subtitle,
+            id,
+            body,
+            externalLink,
+            githubLink,
+          } = job;
           return (
             <CardItem
               key={key}
@@ -113,6 +136,8 @@ const Work = () => {
               image={img}
               id={id}
               body={body}
+              externalLink={externalLink}
+              githubLink={githubLink}
             />
           );
         })}
