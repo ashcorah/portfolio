@@ -8,7 +8,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import Ash from "../../assets/images/ash.jpg";
-import Skatepark from "../../assets/images/skatepark.jpg";
+import Swhirly from "../../assets/images/swhirly.gif";
 import usePalette from "../../hooks/usePallette";
 import PageContainer from "../../components/PageContainer/index.jsx";
 import { AiOutlineMail } from "react-icons/ai";
@@ -78,9 +78,9 @@ const About = () => {
         <Image
           transition="0.5s all ease"
           className="skt"
-          src={Skatepark}
+          src={Swhirly}
           objectFit="cover"
-          filter="grayscale(100%) brightness(50%)"
+          filter="brightness(50%)"
           h="100%"
           w="100%"
           top="0"
@@ -98,7 +98,6 @@ const About = () => {
                 maxW="180px"
                 objectFit="cover"
                 borderRadius="5%"
-                filter="grayscale(100%)"
                 sx={{
                   ":hover": {
                     filter: "grayscale(0%)",
