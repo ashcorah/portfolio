@@ -8,6 +8,7 @@ import {
   Stack,
   IconButton,
 } from "@chakra-ui/react";
+import cx from "classnames";
 import usePalette from "../../hooks/usePallette";
 import {
   AiFillGithub,
@@ -16,25 +17,17 @@ import {
   AiOutlineMail,
 } from "react-icons/ai";
 
+import style from "./Sidebar.module.scss";
+
 const Sidebar = () => {
   const location = useLocation();
   const colors = usePalette();
 
   const title = (
-    <Stack
-      textAlign="left"
-      sx={{
-        ":hover *": {
-          color:
-            colors[["red", "blue", "green"][Math.floor(Math.random() * 3)]],
-        },
-      }}
-    >
+    <Stack textAlign="left" className={style.vapor}>
       <Link to="/">
-        <Heading transition="0.3s all ease">Ash Corah</Heading>
-        <Text transition="0.3s all ease" color={colors.gray}>
-          Software Engineer
-        </Text>
+        <Heading>Ash Corah</Heading>
+        <Text fontSize="12px">Software Engineer</Text>
       </Link>
     </Stack>
   );
@@ -47,11 +40,12 @@ const Sidebar = () => {
     return (
       <Link to={to}>
         <Text
+          className={cx(isMatch ? style.vapor : undefined)}
           sx={{
             cursor: "pointer",
             color: isMatch ? colors.base : colors.gray,
             fontWeight: isMatch ? "bold" : "normal",
-            fontSize: "1em",
+            fontSize: "0.9em",
             ":hover": {
               color: "black",
             },
