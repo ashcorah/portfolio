@@ -90,7 +90,6 @@ const About = () => {
                       src={Ash}
                       maxW="150px"
                       objectFit="cover"
-                      borderRadius="8px"
                       sx={{
                         marginBottom: "30px",
                         boxShadow:

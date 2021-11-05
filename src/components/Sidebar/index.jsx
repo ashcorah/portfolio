@@ -36,7 +36,8 @@ const Sidebar = () => {
   function NavLink({ to, children }) {
     const isMatch =
       location.pathname.includes(to) ||
-      (location.pathname === "/about" && to === "/");
+      (to === "/about" && location.pathname === "/");
+
     return (
       <Link to={to}>
         <Text
