@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const token =
-  "IGQVJVZAnU4WUxRMm9rYjZAVTVJvQmpueTRzM0NBYkU4RjJLcDdkQ28wZA1hkUnVWZAkZAPQ1pIN21nTVg2WDlPU051ZAXljb1hrR25rTWRzcUFXbkwtbVVwRmg3STdqMWVUS0JuN3o0WXlQaGRsVUxGeXk0dAZDZD";
+  process.env.INSTAGRAM_TOKEN;
 
 async function getInstagramAccount(fields) {
   console.log("refetching");
