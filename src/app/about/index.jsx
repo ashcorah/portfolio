@@ -122,16 +122,6 @@ const About = () => {
                   </VStack>
                 </VStack>
               </VStack>
-              {/* <Button
-                as="a"
-                href="mailto:ashcorah@gmail.com"
-                leftIcon={<AiOutlineMail />}
-                fontWeight="normal"
-                _hover={{ borderColor: colors.red }}
-                variant="outline"
-              >
-                Get in touch
-              </Button> */}
             </VStack>
           </Win98Popup>
         </Center>

@@ -33,7 +33,12 @@
   }
 }
 
+.close {
+  opacity: 0;
+}
+
 .win98popup {
+  transition: all 1s;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-between;

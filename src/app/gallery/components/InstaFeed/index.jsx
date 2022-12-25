@@ -29,7 +29,11 @@ const InstaFeed = ({ fields }) => {
     );
 
   if (error)
-    return <Center h="100%">Uh oh...something failed to load. 😔</Center>;
+    return (
+      <Center h="100%">
+        Instagram API token expired, (their API sucks) 😔
+      </Center>
+    );
 
   return (
     <Wrap w="100%" spacing="20px" justify="center" textAlign="center">

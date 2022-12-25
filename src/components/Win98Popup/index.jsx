@@ -1,31 +1,16 @@
 import React from "react";
 import style from "./Win98Popup.module.scss";
 import cx from "classnames";
-import { Box } from "@chakra-ui/react";
-
-const Win98Button = ({ children, ...rest }) => (
-  <Box as="button" className={style.shadow} {...rest}>
-    <img
-      src="https://raw.githubusercontent.com/mbledkowski/win98popup/master/outline.svg"
-      alt=""
-      width="66.9"
-      height="15"
-    />
-    {children}
-  </Box>
-);
 
 const Win98Popup = ({ children, title }) => {
-  function Close() {
-    alert("You dont want to read about me?");
-  }
+  const [isOpen, setIsOpen] = React.useState(true);
 
-  function No() {
-    alert("Your loss!");
+  function Close() {
+    setIsOpen(false);
   }
 
   return (
-    <div className={cx(style.win98popup, style.shadow)}>
+    <div className={cx(style.win98popup, !isOpen && style.close, style.shadow)}>
       <div className={style.bar}>
         <p>{title}</p>
         <button onClick={Close} className={style.shadow}>
@@ -43,22 +28,6 @@ const Win98Popup = ({ children, title }) => {
         </button>
       </div>
       <section>{children}</section>
-      <p>Do you want to get in contact?</p>
-      <div className={style.buttons}>
-        <Win98Button as="a" href="mailto:ashcorah@gmail.com">
-          <p>
-            <u>Y</u>es
-          </p>
-        </Win98Button>
-        <Win98Button onClick={No}>
-          <p>
-            <u>N</u>o
-          </p>
-        </Win98Button>
-        <Win98Button onClick={Close}>
-          <p>Cancel</p>
-        </Win98Button>
-      </div>
     </div>
   );
 };
