@@ -29,6 +29,9 @@
     "react-video-progress": "^1.2.0",
     "sass": "^1.32.8"
   },
+  "resolutions": {
+    "react-error-overlay": "6.0.9"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

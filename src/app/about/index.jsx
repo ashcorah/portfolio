@@ -39,6 +39,7 @@ const About = () => {
     "CSS",
     "Sass",
     "JavaScript",
+    "Typescript",
     "React",
     "Redux",
     "GraphQL",
@@ -46,15 +47,7 @@ const About = () => {
     "Agile",
   ];
   const knows = ["MongoDB", "Styled components"];
-  const dabbled = [
-    "Docker",
-    "AWS",
-    "GCP",
-    "VueJS",
-    "Typescript",
-    "NextJS",
-    "GatsbyJS",
-  ];
+  const dabbled = ["Docker", "AWS", "GCP", "VueJS", "NextJS", "GatsbyJS"];
   const enjoys = ["BMX", "Snowboard", "Mountain Biking"];
 
   return (

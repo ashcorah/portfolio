@@ -25,7 +25,7 @@ function getWorkPlaces() {
     {
       img: Bank,
       title: "Chaser",
-      subtitle: "Front-End Engineer \u25CF Remote",
+      subtitle: "Full-Stack Engineer \u25CF Remote",
       body: <ChaserText />,
       externalLink: "https://www.chaserhq.com",
       githubLink: "https://www.npmjs.com/package/chaser-components",
@@ -119,15 +119,8 @@ const Work = () => {
     <PageContainer>
       <Wrap h="100%" w="100%" display="flex" spacing="20px">
         {workPlaces.map((job, key) => {
-          const {
-            title,
-            img,
-            subtitle,
-            id,
-            body,
-            externalLink,
-            githubLink,
-          } = job;
+          const { title, img, subtitle, id, body, externalLink, githubLink } =
+            job;
           return (
             <CardItem
               key={key}
