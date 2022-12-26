@@ -92,7 +92,7 @@ const Sidebar = () => {
             />
             <IconButton
               as="a"
-              href="https://www.instagram.com/trashcorah/"
+              href="https://www.instagram.com/ashcorah/"
               borderWidth="1px"
               sx={{
                 ":hover": {
