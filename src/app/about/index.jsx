@@ -15,7 +15,7 @@ const ToolSection = ({ skills, title }) => (
       spacing="3px"
     >
       {skills.map((skill) => (
-        <ToolkitBox skill={skill} />
+        <ToolkitBox key={skill} skill={skill} />
       ))}
     </HStack>
   </VStack>

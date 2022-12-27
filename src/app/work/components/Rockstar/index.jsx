@@ -10,7 +10,7 @@ const Chaser = () => {
         justifyContent="flex-start"
         flexDirection="column"
         fontSize="14px"
-        color={colors.white}
+        color={colors.text}
       >
         <Heading as="h4" size="sm">
           Rockstar, Tools Engineer

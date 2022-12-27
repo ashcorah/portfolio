@@ -9,7 +9,7 @@ const Chaser = () => {
         spacing="8px"
         justifyContent="flex-start"
         fontSize="14px"
-        color={colors.white}
+        color={colors.text}
       >
         <Heading as="h4" size="sm">
           Skyscanner, Full-stack Engineer

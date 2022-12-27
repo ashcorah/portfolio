@@ -1,8 +1,8 @@
-import { useCallback, useLayoutEffect, useRef } from 'react';
+import { useCallback, useLayoutEffect, useRef } from "react";
 
 function useEventCallback(callback) {
   const ref = useRef(() => {
-    throw new Error('Cannot call an event handler while rendering.');
+    throw new Error("Cannot call an event handler while rendering.");
   });
 
   useLayoutEffect(() => {

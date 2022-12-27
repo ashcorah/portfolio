@@ -50,10 +50,10 @@ const Front = ({
       >
         {!shown && (
           <>
-            <Box color={colors.white} fontWeight="semibold" fontSize="xs">
+            <Box color={colors.text} fontWeight="semibold" fontSize="xs">
               {title}
             </Box>
-            <Box color={colors.white} fontWeight="semibold" fontSize="xs">
+            <Box color={colors.text} fontWeight="semibold" fontSize="xs">
               {subtitle}
             </Box>
           </>

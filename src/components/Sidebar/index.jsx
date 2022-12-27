@@ -18,6 +18,7 @@ import {
 } from "react-icons/ai";
 
 import style from "./Sidebar.module.scss";
+import ThemeSelector from "../ThemeSelector";
 
 const Sidebar = () => {
   const location = useLocation();
@@ -69,6 +70,7 @@ const Sidebar = () => {
     >
       <VStack spacing={8} alignItems="flex-start" display="flex" w="100%">
         {title}
+        <ThemeSelector />
         <VStack alignItems="flex-start" display="flex" w="100%">
           <NavLink to="/about">About</NavLink>
           <NavLink to="/work">Work</NavLink>
