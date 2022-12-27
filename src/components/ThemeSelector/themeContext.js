@@ -22,7 +22,7 @@ function reducer(state = themes.lightTheme, action) {
 }
 
 const ThemeProvider = ({ children }) => {
-  const ctx = useReducer(reducer, [], initializer);
+  const ctx = useReducer(reducer, themes.lightTheme, initializer);
   return <ThemeContext.Provider value={ctx}>{children}</ThemeContext.Provider>;
 };
 
