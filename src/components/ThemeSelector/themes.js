@@ -4,7 +4,7 @@ import Vapor from "../../assets/images/vapor.gif";
 import Sky from "../../assets/images/sky.gif";
 import Ash from "../../assets/images/ash.jpg";
 import Ash2 from "../../assets/images/ash2.jpg";
-import Ash3 from "../../assets/images/Ash3.png";
+import Ash3 from "../../assets/images/Ash3.jpg";
 
 const lightTheme = extendTheme({
   name: "Light",
@@ -102,7 +102,7 @@ const pastelleTheme = extendTheme({
   colors: {
     palette: {
       select: "#FD8A8A",
-      text: "#9EA1D4",
+      text: "#FFF8E1",
       textHover: "#9EA1D4",
       selected: "#A8D1D1",
       card: "#A8D1D1",

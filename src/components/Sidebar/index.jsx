@@ -25,7 +25,11 @@ const Sidebar = () => {
   const colors = usePalette();
 
   const title = (
-    <Stack textAlign="left" className={style.vapor}>
+    <Stack
+      textAlign="left"
+      style={{ color: colors.text }}
+      className={style.vapor}
+    >
       <Link to="/">
         <Heading>Ash Corah</Heading>
         <Text fontSize="12px">Software Engineer</Text>
