@@ -45,11 +45,11 @@ const Sidebar = () => {
           className={cx(isMatch ? style.vapor : undefined)}
           sx={{
             cursor: "pointer",
-            color: isMatch ? colors.base : colors.gray,
+            color: isMatch ? colors.selected : colors.text,
             fontWeight: isMatch ? "bold" : "normal",
             fontSize: "0.9em",
             ":hover": {
-              color: "black",
+              color: colors.textHover,
             },
           }}
         >
@@ -84,13 +84,13 @@ const Sidebar = () => {
               borderWidth="1px"
               sx={{
                 ":hover": {
-                  color: colors.base,
+                  color: colors.iconHover,
                 },
               }}
               variant="ghost"
               aria-label="github"
               icon={<AiFillGithub size="30px" />}
-              color={colors.gray}
+              color={colors.icon}
             />
             <IconButton
               as="a"
@@ -98,10 +98,10 @@ const Sidebar = () => {
               borderWidth="1px"
               sx={{
                 ":hover": {
-                  color: colors.base,
+                  color: colors.iconHover,
                 },
               }}
-              color={colors.gray}
+              color={colors.icon}
               variant="ghost"
               aria-label="instagram"
               icon={<AiFillInstagram size="30px" />}
@@ -114,10 +114,10 @@ const Sidebar = () => {
               borderWidth="1px"
               sx={{
                 ":hover": {
-                  color: colors.base,
+                  color: colors.iconHover,
                 },
               }}
-              color={colors.gray}
+              color={colors.icon}
               variant="ghost"
               aria-label="linkedin"
               icon={<AiFillLinkedin size="30px" />}
@@ -128,10 +128,10 @@ const Sidebar = () => {
               borderWidth="1px"
               sx={{
                 ":hover": {
-                  color: colors.base,
+                  color: colors.iconHover,
                 },
               }}
-              color={colors.gray}
+              color={colors.icon}
               variant="ghost"
               aria-label="email"
               icon={<AiOutlineMail size="30px" />}

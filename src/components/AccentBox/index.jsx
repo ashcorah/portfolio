@@ -10,7 +10,7 @@ const AccentBox = ({ children, fontColor, image, ...rest }) => {
       backgroundRepeat="no-repeat"
       backgroundSize="400px"
       position="relative"
-      color={fontColor || colors.base}
+      color={fontColor || colors.text}
       display="flex"
       justifyContent="flex-start"
       fontSize="13px"

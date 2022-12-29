@@ -105,7 +105,7 @@ const InstaFeed = ({ fields }) => {
   if (isLoading)
     return (
       <Center h="100%" w="100%">
-        <ClimbingBoxLoader color={colors.base} />
+        <ClimbingBoxLoader color={colors.loader} />
       </Center>
     );
 
@@ -163,7 +163,7 @@ const InstaFeed = ({ fields }) => {
                       position="absolute"
                       maxW="120px"
                       fontSize="15px"
-                      color={colors.white}
+                      color={colors.galleryText}
                     >
                       {caption}
                     </Text>

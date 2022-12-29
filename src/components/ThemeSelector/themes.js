@@ -1,4 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
+import Swhirly from "../../assets/images/puter.gif";
+import Vapor from "../../assets/images/vapor.gif";
 
 const lightTheme = extendTheme({
   styles: {
@@ -12,22 +14,22 @@ const lightTheme = extendTheme({
       },
     },
   },
+  images: {
+    aboutImg: Swhirly,
+  },
   colors: {
     palette: {
       select: "#151515",
-      text: "white",
-      base: "#0B2436",
-      red: "#C9A3A4",
-      white: "white",
-      green: "#ACB5AC",
-      orange: "#FF6B6B",
-      black: "#2E2E2E",
-      gold: "#D5B792",
-      blue: "#A7CEEF",
-      gray: "#858585",
-      lightGray: "#BBBFBF",
-      lighterGray: "#F2F7F7",
-      lavendar: "#B8BBD3",
+      text: "#171010",
+      textHover: "#858585",
+      selected: "#858585",
+      card: "#0B2436",
+      iconHover: "#858585",
+      icon: "#161616",
+      loader: "#0B2436",
+      border: "#858585",
+      cardText: "#DDDDDD",
+      galleryText: "#F2F7F7",
     },
   },
   fonts: {
@@ -40,7 +42,7 @@ const darkTheme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "#404258",
+        bg: "#000000",
         height: "100%",
       },
       html: {
@@ -48,22 +50,22 @@ const darkTheme = extendTheme({
       },
     },
   },
+  images: {
+    aboutImg: Vapor,
+  },
   colors: {
     palette: {
-      select: "white",
-      text: "white",
-      base: "#DDDDDD",
-      red: "#C9A3A4",
-      gray: "white",
-      green: "#ACB5AC",
-      orange: "#FF6B6B",
-      black: "#2E2E2E",
-      gold: "#D5B792",
-      blue: "#A7CEEF",
-      white: "#858585",
-      lightGray: "#D8D8D8",
-      lighterGray: "#DDDDDD",
-      lavendar: "#B8BBD3",
+      select: "#D6D5A8",
+      text: "#D6D5A8",
+      textHover: "#816797",
+      selected: "#51557E",
+      card: "#DDDDDD",
+      iconHover: "#858585",
+      icon: "#D6D5A8",
+      border: "#D6D5A8",
+      loader: "#D6D5A8",
+      cardText: "#D6D5A8",
+      galleryText: "#D6D5A8",
     },
   },
   fonts: {

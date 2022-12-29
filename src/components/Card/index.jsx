@@ -50,10 +50,10 @@ const Front = ({
       >
         {!shown && (
           <>
-            <Box color={colors.text} fontWeight="semibold" fontSize="xs">
+            <Box color={colors.cardText} fontWeight="semibold" fontSize="xs">
               {title}
             </Box>
-            <Box color={colors.text} fontWeight="semibold" fontSize="xs">
+            <Box color={colors.cardText} fontWeight="semibold" fontSize="xs">
               {subtitle}
             </Box>
           </>
@@ -72,7 +72,7 @@ const Front = ({
                 href={externalLink}
                 sx={{
                   ":hover": {
-                    color: colors.base,
+                    color: colors.card,
                   },
                 }}
                 variant="ghost"
@@ -89,7 +89,7 @@ const Front = ({
                 target="_blank"
                 sx={{
                   ":hover": {
-                    color: colors.base,
+                    color: colors.card,
                   },
                 }}
                 variant="ghost"

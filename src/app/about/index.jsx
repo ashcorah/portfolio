@@ -1,9 +1,9 @@
 import { Center, Image, Text, VStack, Box, HStack } from "@chakra-ui/react";
 import Ash from "../../assets/images/ash.jpg";
-import Swhirly from "../../assets/images/puter.gif";
 import usePalette from "../../hooks/usePallette";
 import PageContainer from "../../components/PageContainer/index.jsx";
 import Win98Popup from "../../components/Win98Popup/index";
+import { useTheme } from "@emotion/react";
 
 const ToolSection = ({ skills, title }) => (
   <VStack>
@@ -25,13 +25,14 @@ const ToolkitBox = ({ skill }) => {
   const colors = usePalette();
 
   return (
-    <Box pl={2} pr={2} borderWidth="1px" borderColor={colors.gray}>
+    <Box pl={2} pr={2} borderWidth="1px" borderColor={colors.border}>
       {skill}
     </Box>
   );
 };
 
 const About = () => {
+  const { images } = useTheme();
   const skills = [
     "Git",
     "NodeJS",
@@ -56,7 +57,7 @@ const About = () => {
         <Image
           transition="0.5s all ease"
           className="skt"
-          src={Swhirly}
+          src={images.aboutImg}
           objectFit="cover"
           filter="brightness(75%)"
           h="100%"
