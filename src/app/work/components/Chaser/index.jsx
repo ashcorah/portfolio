@@ -10,7 +10,7 @@ const Chaser = () => {
         justifyContent="flex-start"
         flexDirection="column"
         fontSize="14px"
-        color={colors.text}
+        color={colors.cardText}
       >
         <Heading as="h4" size="sm">
           Chaser
