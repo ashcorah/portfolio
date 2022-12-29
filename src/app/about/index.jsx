@@ -1,5 +1,5 @@
 import { Center, Image, Text, VStack, Box, HStack } from "@chakra-ui/react";
-import Ash from "../../assets/images/ash.jpg";
+
 import usePalette from "../../hooks/usePallette";
 import PageContainer from "../../components/PageContainer/index.jsx";
 import Win98Popup from "../../components/Win98Popup/index";
@@ -81,7 +81,7 @@ const About = () => {
                     <Image
                       transition="0.5s all ease"
                       className="ash"
-                      src={Ash}
+                      src={images.profilePic}
                       maxW="150px"
                       objectFit="cover"
                       sx={{

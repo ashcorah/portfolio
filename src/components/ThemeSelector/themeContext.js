@@ -10,15 +10,9 @@ export const initializer = (initialValue = themes.lightTheme) =>
 
 function reducer(state = themes.lightTheme, action) {
   localStorage.setItem("theme", JSON.stringify(action.type));
-
-  switch (action.type) {
-    case "lightTheme":
-      return themes.lightTheme;
-    case "darkTheme":
-      return themes.darkTheme;
-    default:
-      return state;
-  }
+  return Object.keys(themes).includes(action.type)
+    ? themes[action.type]
+    : state;
 }
 
 const ThemeProvider = ({ children }) => {
@@ -27,7 +21,7 @@ const ThemeProvider = ({ children }) => {
 };
 
 const useThemeName = () => {
-  return JSON.parse(localStorage.getItem("theme")) || "lightTheme";
+  return JSON.parse(localStorage.getItem("theme")) || Object.keys(themes)[0];
 };
 
 export { ThemeProvider, useThemeContext, useThemeName };

@@ -1,8 +1,13 @@
 import { extendTheme } from "@chakra-ui/react";
 import Swhirly from "../../assets/images/puter.gif";
 import Vapor from "../../assets/images/vapor.gif";
+import Sky from "../../assets/images/sky.gif";
+import Ash from "../../assets/images/ash.jpg";
+import Ash2 from "../../assets/images/ash2.jpg";
+import Ash3 from "../../assets/images/Ash3.png";
 
 const lightTheme = extendTheme({
+  name: "Light",
   styles: {
     global: {
       body: {
@@ -16,6 +21,7 @@ const lightTheme = extendTheme({
   },
   images: {
     aboutImg: Swhirly,
+    profilePic: Ash,
   },
   colors: {
     palette: {
@@ -39,6 +45,7 @@ const lightTheme = extendTheme({
 });
 
 const darkTheme = extendTheme({
+  name: "Dark",
   styles: {
     global: {
       body: {
@@ -52,6 +59,7 @@ const darkTheme = extendTheme({
   },
   images: {
     aboutImg: Vapor,
+    profilePic: Ash3,
   },
   colors: {
     palette: {
@@ -74,9 +82,48 @@ const darkTheme = extendTheme({
   },
 });
 
+const pastelleTheme = extendTheme({
+  name: "Pastelle",
+  styles: {
+    global: {
+      body: {
+        bg: "#C0DEFF",
+        height: "100%",
+      },
+      html: {
+        height: "100%",
+      },
+    },
+  },
+  images: {
+    aboutImg: Sky,
+    profilePic: Ash2,
+  },
+  colors: {
+    palette: {
+      select: "#FD8A8A",
+      text: "#9EA1D4",
+      textHover: "#9EA1D4",
+      selected: "#A8D1D1",
+      card: "#A8D1D1",
+      iconHover: "#9EA1D4",
+      icon: "#FD8A8A",
+      border: "#FD8A8A",
+      loader: "#F1F7B5",
+      cardText: "#F1F7B5",
+      galleryText: "#F1F7B5",
+    },
+  },
+  fonts: {
+    heading: "Source Sans Pro",
+    body: "Source Sans Pro",
+  },
+});
+
 const themes = {
   lightTheme,
   darkTheme,
+  pastelleTheme,
 };
 
 export default themes;

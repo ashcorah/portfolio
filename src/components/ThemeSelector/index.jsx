@@ -1,6 +1,7 @@
 import { Select } from "@chakra-ui/react";
 import { useThemeContext, useThemeName } from "./themeContext";
 import usePalette from "../../hooks/usePallette";
+import themes from "./themes";
 
 const ThemeSelector = () => {
   const [, setThemeContext] = useThemeContext();
@@ -14,8 +15,11 @@ const ThemeSelector = () => {
       color={colors.select}
       onChange={(e) => setThemeContext({ type: e.target.value })}
     >
-      <option value="lightTheme">Light</option>
-      <option value="darkTheme">Dark</option>
+      {Object.keys(themes).map((themeName) => (
+        <option key={themeName} value={themeName}>
+          {themes[themeName].name || themeName}
+        </option>
+      ))}
     </Select>
   );
 };

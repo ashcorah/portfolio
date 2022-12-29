@@ -47,7 +47,7 @@ const Sidebar = () => {
             cursor: "pointer",
             color: isMatch ? colors.selected : colors.text,
             fontWeight: isMatch ? "bold" : "normal",
-            fontSize: "0.9em",
+            fontSize: "1em",
             ":hover": {
               color: colors.textHover,
             },
