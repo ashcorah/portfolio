@@ -26,7 +26,7 @@ const lightTheme = extendTheme({
   colors: {
     palette: {
       select: "#151515",
-      text: "#171010",
+      text: "white",
       textHover: "#858585",
       selected: "#858585",
       card: "#0B2436",

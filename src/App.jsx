@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
 import Work from "./app/work/index.jsx";
 import About from "./app/about/index.jsx";
-import Gallery from "./app/gallery/index.jsx";
 import Sidebar from "./components/Sidebar/index.jsx";
 import { ChakraProvider, SimpleGrid } from "@chakra-ui/react";
 import Fonts from "./components/Fonts/index.jsx";
@@ -43,7 +42,6 @@ function App() {
               <main>
                 <Switch>
                   <Route path="/work" component={Work} />
-                  <Route exact path="/gallery" component={Gallery} />
                   <Route path="/" component={About} />
                 </Switch>
               </main>

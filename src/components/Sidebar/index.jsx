@@ -78,7 +78,6 @@ const Sidebar = () => {
         <VStack alignItems="flex-start" display="flex" w="100%">
           <NavLink to="/about">About</NavLink>
           <NavLink to="/work">Work</NavLink>
-          <NavLink to="/gallery">Gallery</NavLink>
         </VStack>
         <VStack spacing={2}>
           <HStack alignItems="flex-start" display="flex" w="100%">

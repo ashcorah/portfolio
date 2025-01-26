@@ -36,7 +36,7 @@ const Front = ({
           filter: "grayscale(100%) brightness(50%)",
         },
         ":hover::before": {
-          filter: "grayscale(0%) brightness(100%)",
+          filter: "grayscale(0%) brightness(65%)",
         },
       }}
     >
@@ -50,10 +50,10 @@ const Front = ({
       >
         {!shown && (
           <>
-            <Box color={colors.cardText} fontWeight="semibold" fontSize="xs">
+            <Box color={colors.cardText} fontWeight="semibold" fontSize="lg">
               {title}
             </Box>
-            <Box color={colors.cardText} fontWeight="semibold" fontSize="xs">
+            <Box color={colors.cardText} fontWeight="semibold" fontSize="sm">
               {subtitle}
             </Box>
           </>
