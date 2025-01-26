@@ -49,7 +49,7 @@ const About = () => {
   ];
   const knows = ["MongoDB", "Styled components"];
   const dabbled = ["Docker", "AWS", "GCP", "VueJS", "NextJS", "GatsbyJS"];
-  const enjoys = ["BMX", "Snowboard", "Mountain Biking"];
+  const enjoys = ["BMX", "Snowboard", "Mountain Bike", "Muay Thai"];
 
   return (
     <PageContainer>
@@ -112,7 +112,7 @@ const About = () => {
                     <ToolSection title="Toolkit" skills={skills} />
                     <ToolSection title="Know my way around" skills={knows} />
                     <ToolSection title="Dabbled with" skills={dabbled} />
-                    <ToolSection title="Interests" skills={enjoys} />
+                    <ToolSection title="Enjoys" skills={enjoys} />
                   </VStack>
                 </VStack>
               </VStack>
