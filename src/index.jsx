@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
-import { ThemeProvider } from "./components/ThemeSelector/themeContext";
+import { ThemeProvider } from "./components/ThemeSelector/themeContext.js";
 
 ReactDOM.render(
   <ThemeProvider>
